@@ -39,10 +39,11 @@ class BrandController extends Controller
         //validate dữ liệu gửi từ form
         $request->validate([
             'name' => 'required|max:255',
+            'image' => 'required |mimes:jpeg,png,jpg,gif,svg|max:10000',
         ],[
             'name.required' => 'Nhập tên thương hiệu',
+            'image.mimes' => 'File ảnh phải có dạng jpeg,png,jpg,gif,svg',
         ]);
-
         // Lấy toàn bộ tham số gửi từ form
         $params = $request->all();  // $_POST, $_GET
 

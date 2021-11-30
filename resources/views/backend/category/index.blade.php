@@ -48,7 +48,7 @@
                                     </td>
                                     <td>{{ $row->parent_id }}</td>
                                     <td>{{ $row->position }}</td>
-                                    <td>{{ $row->is_active }}</td>
+                                    <td>{{ ($row->is_active == 1) ? 'Hiển thị' : 'Ẩn' }}</td>
                                     <td>{{ $row->created_at }}</td>
                                     <td>
                                         <a href="{{ route('admin.category.edit' , ['id' => $row->id ]) }}" class="btn btn-info">Sửa</a>

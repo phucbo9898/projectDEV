@@ -53,18 +53,23 @@
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
                     @if(Auth::check())
-
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <img src="/backend/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                                <img class="user-image" src="{{ asset(Auth::user()->avatar) }}">
+{{--                                @foreach($users as $user)--}}
+{{--                                    <img src="{{ ass    et($user->image) }}" class="user-image" alt="User Image">--}}
+{{--                                @endforeach--}}
                                 <span class="hidden-xs">
-                                {{ Auth::user()->name }}
-                            </span>
+                                    {{ Auth::user()->name }}
+                                </span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- user image -->
                                 <li class="user-header">
-                                    <img src="/backend/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                    <img class="user-image" src="{{ asset(Auth::user()->avatar) }}">
+{{--                                    @foreach($users as $user)--}}
+{{--                                        <img src="{{ asset($user->image) }}" class="user-image" alt="User Image">--}}
+{{--                                    @endforeach--}}
                                 </li>
 
                                 <!-- Menu Footer-->
@@ -90,13 +95,17 @@
         <section class="sidebar">
             <!-- Sidebar user panel -->
             <div class="user-panel">
-                <div class="pull-left image">
-                    <img src="/backend/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-                </div>
-                <div class="pull-left info">
-                    <p>Alexander Pierce</p>
-                    <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-                </div>
+                @if(Auth::check())
+                    <li class="dropdown user user-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <span class="hidden-xs">
+                                {{ Auth::user()->name }}
+                            </span>
+                        </a>
+
+                    </li>
+
+                @endif
             </div>
             <!-- search form -->
             <form action="#" method="get" class="sidebar-form">

@@ -2,11 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Admin;
+use App\Product;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
+    public function index()
+    {
+//        $data = Product::all();
+//        $countProduct = Product::count();
+//        dd($countProduct);
+        $data = Product::latest()->paginate(10);    // Lấy dữ liệu phân trang
+        $users = User::all();
+        return view('backend.admin.index', ['data'=> $data], ['users'=>$users]);
+    }
+
     public function login()
     {
         return view('backend.login');
