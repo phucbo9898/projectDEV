@@ -5,7 +5,7 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <!-- BSTORE-BREADCRUMB START -->
             <div class="bstore-breadcrumb">
-                <a href="/frontend/index.html">HOMe</a>
+                <a href="{{ asset('frontend/index.html')}}">HOMe</a>
                 <span><i class="fa fa-caret-right	"></i></span>
                 <span>Your shopping cart</span>
             </div>
@@ -63,12 +63,12 @@
                     <!-- SINGLE CART_ITEM START -->
                     <tr>
                         <td class="cart-product">
-                            <a href="/frontend/#"><img alt="Blouse" src="/frontend/img/product/cart-image1.jpg"></a>
+                            <a href="{{ asset('frontend/#')}}"><img alt="Blouse" src="{{ asset('frontend/img/product/cart-image1.jpg')}}'"></a>
                         </td>
                         <td class="cart-description">
-                            <p class="product-name"><a href="/frontend/#">Faded Short Sleeves T-shirt</a></p>
+                            <p class="product-name"><a href="{{ asset('frontend/#')}}">Faded Short Sleeves T-shirt</a></p>
                             <small>SKU : demo_1</small>
-                            <small><a href="/frontend/#">Size : S, Color : Orange</a></small>
+                            <small><a href="{{ asset('frontend/#')}}">Size : S, Color : Orange</a></small>
                         </td>
                         <td class="cart-avail"><span class="label label-success">In stock</span></td>
                         <td class="cart-unit">
@@ -83,7 +83,7 @@
                         </td>
                         <td class="cart-delete text-center">
                                                 <span>
-                                                    <a href="/frontend/#" class="cart_quantity_delete" title="Delete"><i class="fa fa-trash-o"></i></a>
+                                                    <a href="{{ asset('frontend/#')}}" class="cart_quantity_delete" title="Delete"><i class="fa fa-trash-o"></i></a>
                                                 </span>
                         </td>
                         <td class="cart-total">
@@ -94,12 +94,12 @@
                     <!-- SINGLE CART_ITEM START -->
                     <tr>
                         <td class="cart-product">
-                            <a href="/frontend/#"><img alt="Blouse" src="/frontend/img/product/cart-image2.jpg"></a>
+                            <a href="{{ asset('frontend/#')}}"><img alt="Blouse" src="{{ asset('frontend/img/product/cart-image2.jpg')}}"></a>
                         </td>
                         <td class="cart-description">
-                            <p class="product-name"><a href="/frontend/#">Blouse</a></p>
+                            <p class="product-name"><a href="{{ asset('frontend/#')}}">Blouse</a></p>
                             <small>SKU : demo_2</small>
-                            <small><a href="/frontend/#">Size : S, Color : Black</a></small>
+                            <small><a href="{{ asset('frontend/#')}}">Size : S, Color : Black</a></small>
                         </td>
                         <td class="cart-avail"><span class="label label-success">In stock</span></td>
                         <td class="cart-unit">
@@ -115,7 +115,7 @@
                             </div>
                         </td>
                         <td class="cart-delete text-center">
-                            <a href="/frontend/#" class="cart_quantity_delete" title="Delete"><i class="fa fa-trash-o"></i></a>
+                            <a href="{{ asset('frontend/#')}}" class="cart_quantity_delete" title="Delete"><i class="fa fa-trash-o"></i></a>
                         </td>
                         <td class="cart-total">
                             <span class="price">$22.95</span>
@@ -125,12 +125,12 @@
                     <!-- SINGLE CART_ITEM START -->
                     <tr>
                         <td class="cart-product">
-                            <a href="/frontend/#"><img alt="Blouse" src="/frontend/img/product/cart-image3.jpg"></a>
+                            <a href="{{ asset('frontend/#')}}"><img alt="Blouse" src="{{ asset('frontend/img/product/cart-image3.jpg')}}"></a>
                         </td>
                         <td class="cart-description">
-                            <p class="product-name"><a href="/frontend/#">Printed Summer Dress</a></p>
+                            <p class="product-name"><a href="{{ asset('frontend/#')}}">Printed Summer Dress</a></p>
                             <small>SKU : demo_5</small>
-                            <small><a href="/frontend/#">Size : M, Color : Blue</a></small>
+                            <small><a href="{{ asset('frontend/#')}}">Size : M, Color : Blue</a></small>
                         </td>
                         <td class="cart-avail"><span class="label label-success">In stock</span></td>
                         <td class="cart-unit">
@@ -146,7 +146,7 @@
                             </div>
                         </td>
                         <td class="cart-delete text-center">
-                            <a href="/frontend/#" class="cart_quantity_delete" title="Delete"><i class="fa fa-trash-o"></i></a>
+                            <a href="{{ asset('frontend/#')}}" class="cart_quantity_delete" title="Delete"><i class="fa fa-trash-o"></i></a>
                         </td>
                         <td class="cart-total">
                             <span class="price">$30.45</span>
@@ -230,8 +230,8 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <!-- RETURNE-CONTINUE-SHOP START -->
             <div class="returne-continue-shop">
-                <a href="/frontend/index.html" class="continueshoping"><i class="fa fa-chevron-left"></i>Continue shopping</a>
-                <a href="/frontend/checkout-signin.html" class="procedtocheckout">Proceed to checkout<i class="fa fa-chevron-right"></i></a>
+                <a href="{{ asset('frontend/index.html')}}" class="continueshoping"><i class="fa fa-chevron-left"></i>Continue shopping</a>
+                <a href="{{ asset('frontend/checkout-signin.html')}}" class="procedtocheckout">Proceed to checkout<i class="fa fa-chevron-right"></i></a>
             </div>
             <!-- RETURNE-CONTINUE-SHOP END -->
         </div>

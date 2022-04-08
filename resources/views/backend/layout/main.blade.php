@@ -7,16 +7,16 @@
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
-    <link rel="stylesheet" href="/backend/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('backend/bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="/backend/bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ asset('backend/bower_components/font-awesome/css/font-awesome.min.css')}}">
     <!-- Ionicons -->
-    <link rel="stylesheet" href="/backend/bower_components/Ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="{{ asset('backend/bower_components/Ionicons/css/ionicons.min.css')}}">
     <!-- Theme style -->
-    <link rel="stylesheet" href="/backend/dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="{{ asset('backend/dist/css/AdminLTE.min.css')}}">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="/backend/dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="{{ asset('backend/dist/css/skins/_all-skins.min.css')}}">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -34,7 +34,7 @@
 
     <header class="main-header">
         <!-- Logo -->
-        <a href="/backend/index2.html" class="logo">
+        <a href="{{ route('admin.dashboard.index') }}" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>A</b>LT</span>
             <!-- logo for regular state and mobile devices -->
@@ -121,50 +121,51 @@
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu" data-widget="tree">
                 <li>
+                    <a href="{{ route('admin.dashboard.index') }}">
+                        <i class="fa fa-edit"></i> <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
                     <a href="{{ route('admin.category.index') }}">
-                        <i class="fa fa-th"></i> <span>QL Danh Mục</span>
+                        <i class="fa fa-folder"></i> <span>Quản Lý Danh Mục</span>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('admin.brand.index') }}">
-                        <i class="fa fa-th"></i> <span>QL Thương Hiệu</span>
+                        <i class="fa fa-empire"></i> <span>Quản Lý Thương Hiệu</span>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('admin.product.index') }}">
-                        <i class="fa fa-th"></i> <span>QL Sản Phẩm</span>
+                        <i class="fa fa-tasks"></i> <span>Quản Lý Sản Phẩm</span>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('admin.article.index') }}">
-                        <i class="fa fa-th"></i> <span>QL Tin Tức</span>
+                        <i class="fa fa-newspaper-o"></i> <span>Quản Lý Tin Tức</span>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('admin.banner.index') }}">
-                        <i class="fa fa-th"></i> <span>QL Thư Viện</span>
+                        <i class="fa fa-photo"></i> <span>Quản Lý Thư Viện</span>
                     </a>
                 </li>
-                <li style="display: none">
+                <li>
                     <a href="">
-                        <i class="fa fa-th"></i> <span>QL Đặt Hàng</span>
+                        <i class="fa fa-check-square"></i> <span>Quản Lý Đặt Hàng</span>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('admin.user.index') }}">
-                        <i class="fa fa-th"></i> <span>QL Người Dùng</span>
+                        <i class="fa fa-user"></i> <span>Quản Lý Người Dùng</span>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('admin.contact.index') }}">
-                        <i class="fa fa-th"></i> <span>QL Liên Hệ</span>
+                        <i class="fa fa-comment"></i> <span>Quản Lý Liên Hệ</span>
                     </a>
                 </li>
-                <li style="display: none">
-                    <a href="">
-                        <i class="fa fa-th"></i> <span>QL Cấu Hình Website</span>
-                    </a>
-                </li>
+
             </ul>
         </section>
         <!-- /.sidebar -->
@@ -381,18 +382,18 @@
 <!-- ./wrapper -->
 
 <!-- jQuery 3 -->
-<script src="/backend/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="{{ asset('backend/bower_components/jquery/dist/jquery.min.js')}}"></script>
 <!-- Bootstrap 3.3.7 -->
-<script src="/backend/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="{{ asset('backend/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
 
 <script src="https://cdn.ckeditor.com/4.16.2/full/ckeditor.js"></script>
 
 <!-- FastClick -->
-<script src="/backend/bower_components/fastclick/lib/fastclick.js"></script>
+<script src="{{ asset('backend/bower_components/fastclick/lib/fastclick.js')}}"></script>
 <!-- AdminLTE App -->
-<script src="/backend/dist/js/adminlte.min.js"></script>
+<script src="{{ asset('backend/dist/js/adminlte.min.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="/backend/dist/js/demo.js"></script>
+<script src="{{ asset('backend/dist/js/demo.js')}}"></script>
 
 @yield('my_js')
 

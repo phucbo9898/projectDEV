@@ -44,7 +44,7 @@
                                     <td>{{ $key + 1 }}</td>
                                     <td>{{ $row->name }}</td>
                                     <td>
-                                        <img width="80" src="{{ asset($row->image) }}" alt="">
+                                        <img width="50" src="{{ asset($row->image) }}" alt="">
                                     </td>
                                     <td>{{ $row->parent_id }}</td>
                                     <td>{{ $row->position }}</td>

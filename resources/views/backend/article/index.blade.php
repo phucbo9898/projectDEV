@@ -30,7 +30,6 @@
                                 <th>ID</th>
                                 <th>Tiêu đề</th>
                                 <th>Hình ảnh</th>
-                                <th>Url</th>
                                 <th>Vị trí</th>
                                 <th>Trạng thái</th>
                                 <th class="text-center">Hành động</th>
@@ -40,13 +39,12 @@
                             @foreach($data as $key => $item)
                                     <tr class="item-{{ $item->id }}"> <!-- Thêm Class Cho Dòng -->
                                         <td>{{ $key + 1 }}</td>
-                                        <td>{{ $item->title }}</td>
+                                        <td style="width: 300px">{{ $item->title }}</td>
                                         <td>
                                             @if ($item->image) <!-- Kiểm tra hình ảnh tồn tại -->
-                                                <img src="{{asset($item->image)}}" width="150" >
+                                                <img src="{{asset($item->image)}}" width="120" >
                                                 @endif
                                         </td>
-                                        <td>{{ $item->url == 1 }}</td>
                                         <td>{{ $item->position }}</td>
                                         <td>{{ ($item->is_active == 1) ? 'Hiển thị' : 'Ẩn' }}</td>
                                         <td class="text-center">

@@ -12,7 +12,7 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <!-- BSTORE-BREADCRUMB START -->
             <div class="bstore-breadcrumb">
-                <a href="/frontend/index.html">HOMe</a>
+                <a href="{{ asset('frontend/index.html')}}">HOMe</a>
                 <span><i class="fa fa-caret-right"></i></span>
                 <span>{{ $data['name'] }}</span>
             </div>
@@ -26,7 +26,7 @@
                 <!-- PRODUCT-CATEGORY-HEADER START -->
                 <div class="product-category-header">
                     <div class="category-header-image">
-                        <img src="/frontend/img/category-header.jpg" alt="category-header" />
+                        <img src="{{ asset('frontend/img/category-header.jpg')}}" alt="category-header" />
                         <div class="category-header-text">
                             <h2>{{ $data['name'] }}</h2>
                             <strong>You will find here all woman fashion collections.</strong>
@@ -55,10 +55,10 @@
                                         <a href="{{ route('shop.product',['slug' => $product->slug]) }}"><img src="{{ asset($product->image) }}" alt="product-image" /></a>
                                         <div class="overlay-content">
                                             <ul>
-                                                <li><a href="/frontend/#" title="Quick view"><i class="fa fa-search"></i></a></li>
-                                                <li><a href="/frontend/#" title="Quick view"><i class="fa fa-shopping-cart"></i></a></li>
-                                                <li><a href="/frontend/#" title="Quick view"><i class="fa fa-retweet"></i></a></li>
-                                                <li><a href="/frontend/#" title="Quick view"><i class="fa fa-heart-o"></i></a></li>
+                                                <li><a href="{{ asset('frontend/#')}}" title="Quick view"><i class="fa fa-search"></i></a></li>
+                                                <li><a href="{{ asset('frontend/#')}}" title="Quick view"><i class="fa fa-shopping-cart"></i></a></li>
+                                                <li><a href="{{ asset('frontend/#')}}" title="Quick view"><i class="fa fa-retweet"></i></a></li>
+                                                <li><a href="{{ asset('frontend/#')}}" title="Quick view"><i class="fa fa-heart-o"></i></a></li>
                                             </ul>
                                         </div>
                                     </div>

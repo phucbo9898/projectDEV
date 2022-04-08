@@ -50,11 +50,11 @@ define([
     });
 
     this.$selection.on('focus', function (evt) {
-      // user focuses on the container
+      // User focuses on the container
     });
 
     this.$selection.on('blur', function (evt) {
-      // user exits the container
+      // User exits the container
     });
 
     container.on('focus', function (evt) {

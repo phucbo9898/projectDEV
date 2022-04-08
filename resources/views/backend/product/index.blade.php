@@ -44,7 +44,7 @@
                                 @foreach($data as $key => $row)
                                     <tr>
                                         <td>{{ $key + 1 }}</td>
-                                        <td>{{ $row->name }}</td>
+                                        <td style="width: 350px">{{ $row->name }}</td>
                                         <td>
                                             <img width="80" src="{{ asset($row->image) }}" alt="">
                                         </td>

@@ -24,7 +24,7 @@
 */
 
 // Trang home của website
-Route::get('/', 'ShopController@index');
+Route::get('/', 'ShopController@index')->name('shop.home');
 
 Route::get('/tim-kiem', 'ShopController@search')->name('shop.search');
 
@@ -36,7 +36,7 @@ Route::get('/lien-he', 'ShopController@contact')->name('shop.contact');
 
 Route::post('/gui-lien-he', 'ShopController@postContact')->name('shop.postContact');
 
-Route::get('/dat-hang', 'ShopController@order');
+Route::get('/dat-hang', 'ShopController@order')->name('shop.order');
 
 // Danh sách tin tức
 Route::get('/tin-tuc' , 'ShopController@articles')->name('shop.article');
@@ -57,7 +57,7 @@ Route::get('/admin/logout', 'AdminController@logout')->name('admin.logout');
 // Gom nhóm các route
 Route::group(['prefix' => 'admin','as' => 'admin.', 'middleware' => 'checkLogin'], function() {
     // Trang chủ - quản trị
-    Route::get('/', 'AdminController@index');
+    Route::get('/index', 'AdminController@index');
 
     // Route::get('/duong-dan', 'ten-controller@method');
     Route::resource('banner', 'BannerController');
@@ -67,6 +67,8 @@ Route::group(['prefix' => 'admin','as' => 'admin.', 'middleware' => 'checkLogin'
     Route::resource('article', 'ArticleController');
     Route::resource('brand', 'BrandController');
     Route::resource('contact', 'ContactController');
+    Route::resource('dashboard', 'DashboardController');
+    // Route::resource('setting', 'SettingController');
     //Route::get('/category', 'CategoryController@index');
 });
 

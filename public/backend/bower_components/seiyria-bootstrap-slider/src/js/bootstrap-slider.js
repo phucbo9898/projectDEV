@@ -713,7 +713,7 @@ const windowIsDefined = (typeof window === "object");
 				this._state.value = this.options.value;
 			}
 			else if (this.options.range) {
-				// user wants a range, but value is not an array
+				// User wants a range, but value is not an array
 				this._state.value = [this.options.value, this.options.max];
 			}
 			else {
@@ -837,7 +837,7 @@ const windowIsDefined = (typeof window === "object");
 				this.handle1.addEventListener("focus", this.showTooltip, false);
 				this.handle1.addEventListener("blur", this.hideTooltip, false);
 
-
+				
 				this.handle2.addEventListener("focus", this.showTooltip, false);
 				this.handle2.addEventListener("blur", this.hideTooltip, false);
 

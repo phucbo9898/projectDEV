@@ -22,12 +22,7 @@
             </div>
             <!-- SLIDER-AREA END -->
             <!-- SLIDER-RIGHT START -->
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                <div class="slider-right zoom-img m-top" style="height: 307px;">
-                    <a href="/frontend/#"><img class="img-responsive" src="/frontend/img/product/cms11.jpg"
-                                               alt="sidebar left"/></a>
-                </div>
-            </div>
+
             <!-- SLIDER-RIGHT END -->
         </div>
         <!-- MAIN-SLIDER-AREA END -->
@@ -52,13 +47,12 @@
                                                     src="{{ asset($product->image) }}" alt="product-image"/></a>
                                             <div class="overlay-content">
                                                 <ul>
-                                                    <li><a href="/frontend/#" title="Quick view"><i
-                                                                class="fa fa-search"></i></a></li>
-                                                    <li><a href="/frontend/#" title="Quick view"><i
+                                                    <li><a href="{{ asset('frontend/#') }}" title="Quick view"><i class="fa fa-search"></i></a></li>
+                                                    <li><a href="{{ asset('frontend/#') }}" title="Quick view"><i
                                                                 class="fa fa-shopping-cart"></i></a></li>
-                                                    <li><a href="/frontend/#" title="Quick view"><i
+                                                    <li><a href="{{ asset('frontend/#') }}" title="Quick view"><i
                                                                 class="fa fa-retweet"></i></a></li>
-                                                    <li><a href="/frontend/#" title="Quick view"><i
+                                                    <li><a href="{{ asset('frontend/#') }}" title="Quick view"><i
                                                                 class="fa fa-heart-o"></i></a></li>
                                                 </ul>
                                             </div>
@@ -106,16 +100,14 @@
                         <div class="row">
                             <!-- CLIENT-CAROUSEL START -->
                             <div class="client-carousel">
-                                @foreach($brands as $brand)
+                            @foreach($brands as $brand)
                                 <!-- CLIENT-SINGLE START -->
-                                <div class="item">
-                                    <div class="single-client">
-                                        <a href="#">
-                                            <img src="{{asset($brand->image)}}" alt="brand-client" />
-                                        </a>
+                                    <div class="item">
+                                        <div class="single-client">
+                                                <img src="{{asset($brand->image)}}" alt="brand-client"/>
+                                        </div>
                                     </div>
-                                </div>
-                                <!-- CLIENT-SINGLE END -->
+                                    <!-- CLIENT-SINGLE END -->
                                 @endforeach
                             </div>
                             <!-- CLIENT-CAROUSEL END -->

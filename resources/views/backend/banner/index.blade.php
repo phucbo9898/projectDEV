@@ -39,7 +39,7 @@
                             <!-- Lặp một mảng dữ liệu pass sang view để hiển thị -->
                             @foreach($data as $key => $item)
                                 <tr class="item-{{ $item->id }}"> <!-- Thêm Class Cho Dòng -->
-                                    <td>{{ $item->title }}</td>
+                                    <td style="width: 350px">{{ $item->title }}</td>
                                     <td>
                                     @if ($item->image) <!-- Kiểm tra hình ảnh tồn tại -->
                                         <img width="80" src="{{asset($item->image)}}" width="150" >

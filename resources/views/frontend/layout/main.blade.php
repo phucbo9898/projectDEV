@@ -1,10 +1,15 @@
 <!doctype html>
 <!--[if IE]><![endif]-->
-<!--[if lt IE 7 ]> <html lang="en" class="ie6">    <![endif]-->
-<!--[if IE 7 ]>    <html lang="en" class="ie7">    <![endif]-->
-<!--[if IE 8 ]>    <html lang="en" class="ie8">    <![endif]-->
-<!--[if IE 9 ]>    <html lang="en" class="ie9">    <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--><html lang="en"><!--<![endif]-->
+<!--[if lt IE 7 ]>
+<html lang="en" class="ie6">    <![endif]-->
+<!--[if IE 7 ]>
+<html lang="en" class="ie7">    <![endif]-->
+<!--[if IE 8 ]>
+<html lang="en" class="ie8">    <![endif]-->
+<!--[if IE 9 ]>
+<html lang="en" class="ie9">    <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en"><!--<![endif]-->
 
 <head>
     <meta charset="utf-8">
@@ -15,77 +20,78 @@
 
     <!-- Favicon
 		============================================ -->
-    <link rel="shortcut icon" type="image/x-icon" href="/frontend/img/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('frontend/img/favicon.png')}}">
 
     <!-- FONTS
 		============================================ -->
     <link href='http://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Bitter:400,700,400italic&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Bitter:400,700,400italic&amp;subset=latin,latin-ext'
+          rel='stylesheet' type='text/css'>
 
     <!-- animate CSS
 		============================================ -->
-    <link rel="stylesheet" href="/frontend/css/animate.css">
+    <link rel="stylesheet" href="{{ asset('frontend/css/animate.css')}}">
 
     <!-- FANCYBOX CSS
 		============================================ -->
-    <link rel="stylesheet" href="/frontend/css/jquery.fancybox.css">
+    <link rel="stylesheet" href="{{ asset('frontend/css/jquery.fancybox.css')}}">
 
     <!-- BXSLIDER CSS
 		============================================ -->
-    <link rel="stylesheet" href="/frontend/css/jquery.bxslider.css">
+    <link rel="stylesheet" href="{{ asset('frontend/css/jquery.bxslider.css')}}">
 
     <!-- MEANMENU CSS
 		============================================ -->
-    <link rel="stylesheet" href="/frontend/css/meanmenu.min.css">
+    <link rel="stylesheet" href="{{ asset('frontend/css/meanmenu.min.css')}}">
 
     <!-- JQUERY-UI-SLIDER CSS
 		============================================ -->
-    <link rel="stylesheet" href="/frontend/css/jquery-ui-slider.css">
+    <link rel="stylesheet" href="{{ asset('frontend/css/jquery-ui-slider.css')}}">
 
     <!-- NIVO SLIDER CSS
 		============================================ -->
-    <link rel="stylesheet" href="/frontend/css/nivo-slider.css">
+    <link rel="stylesheet" href="{{ asset('frontend/css/nivo-slider.css')}}">
 
     <!-- OWL CAROUSEL CSS
 		============================================ -->
-    <link rel="stylesheet" href="/frontend/css/owl.carousel.css">
+    <link rel="stylesheet" href="{{ asset('frontend/css/owl.carousel.css')}}">
 
     <!-- OWL CAROUSEL THEME CSS
 		============================================ -->
-    <link rel="stylesheet" href="/frontend/css/owl.theme.css">
+    <link rel="stylesheet" href="{{ asset('frontend/css/owl.theme.css')}}">
 
     <!-- BOOTSTRAP CSS
 		============================================ -->
-    <link rel="stylesheet" href="/frontend/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.min.css')}}">
 
     <!-- FONT AWESOME CSS
 		============================================ -->
-    <link rel="stylesheet" href="/frontend/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ asset('frontend/css/font-awesome.min.css')}}">
 
     <!-- NORMALIZE CSS
 		============================================ -->
-    <link rel="stylesheet" href="/frontend/css/normalize.css">
+    <link rel="stylesheet" href="{{ asset('frontend/css/normalize.css')}}">
 
     <!-- MAIN CSS
 		============================================ -->
-    <link rel="stylesheet" href="/frontend/css/main.css">
+    <link rel="stylesheet" href="{{ asset('frontend/css/main.css')}}">
 
     <!-- STYLE CSS
 		============================================ -->
-    <link rel="stylesheet" href="/frontend/style.css">
+    <link rel="stylesheet" href="{{ asset('frontend/style.css')}}">
 
     <!-- RESPONSIVE CSS
 		============================================ -->
-    <link rel="stylesheet" href="/frontend/css/responsive.css">
+    <link rel="stylesheet" href="{{ asset('frontend/css/responsive.css')}}">
 
     <!-- IE CSS
 		============================================ -->
-    <link rel="stylesheet" href="/frontend/css/ie.css">
+    <link rel="stylesheet" href="{{ asset('frontend/css/ie.css')}}">
 
     <!-- MODERNIZR JS
 		============================================ -->
-    <script src="/frontend/js/vendor/modernizr-2.6.2.min.js"></script>
+    <script src="{{ asset('frontend/js/vendor/modernizr-2.6.2.min.js')}}"></script>
 
     <style>
         * {
@@ -95,7 +101,7 @@
 </head>
 <body>
 <!--[if lt IE 8]>
-<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="/frontend/http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
 
 <!-- Add your site or application content here -->
@@ -114,7 +120,7 @@
                 <div class="header-right-menu">
                     <nav>
                         <ul class="list-inline">
-                            <li><a href="/frontend/cart.html">Giỏ Hàng</a></li>
+                            <li><a href="{{ asset('frontend/cart.html')}}">Giỏ Hàng</a></li>
                             <li><a href="{{ route('shop.contact') }}">Liên hệ</a></li>
                         </ul>
                     </nav>
@@ -132,7 +138,7 @@
             <div class="col-sm-12">
                 <!-- LOGO START -->
                 <div class="logo">
-                    <a href="/"><img src="/frontend/img/logo.png" alt="bstore logo" /></a>
+                    <a href=""><img src="{{ asset('frontend/img/logo.png')}}" alt="bstore logo"/></a>
                 </div>
                 <!-- LOGO END -->
                 <!-- HEADER-RIGHT-CALLUS START -->
@@ -142,7 +148,8 @@
                 <div class="categorys-product-search">
                     <form action="{{ route('shop.search') }}" method="get" class="search-form-cat">
                         <div class="search-product form-group">
-                            <input type="text" class="form-control search-form" name="tu-khoa" placeholder="Nhập từ khóa tìm kiếm " />
+                            <input type="text" class="form-control search-form" name="tu-khoa"
+                                   placeholder="Nhập từ khóa tìm kiếm "/>
                             <button class="search-button" value="Search" type="submit">
                                 <i class="fa fa-search"></i>
                             </button>
@@ -167,7 +174,7 @@
                 <div class="mainmenu">
                     <nav>
                         <ul class="list-inline mega-menu">
-                            <li><a href="/">Trang chủ</a></li>
+                            <li><a href="{{route('shop.home')}}">Trang chủ</a></li>
                             <li><a href="{{route('shop.article')}}">Tin tức</a></li>
                             @foreach($categories as $parent)
                                 @if($parent->parent_id == 0)
@@ -178,7 +185,9 @@
                                             <ul class="home-menu">
                                                 @foreach($categories as $child)
                                                     @if($child->parent_id == $parent->id)
-                                                        <li><a href="{{ route('shop.category', ['slug' => $child->slug]) }}">{{ $child->name }}</a></li>
+                                                        <li>
+                                                            <a href="{{ route('shop.category', ['slug' => $child->slug]) }}">{{ $child->name }}</a>
+                                                        </li>
 
                                                         <!-- xử lý menu cấp3 ở đây-->
 
@@ -203,60 +212,60 @@
                     <span class="mobile-menu-title">MENU</span>
                     <nav>
                         <ul>
-                            <li><a href="/frontend/index.html">Home</a>
+                            <li><a href="{{ asset('frontend/index.html')}}">Home</a>
                                 <ul>
-                                    <li><a href="/frontend/index.html">Home variation 1</a></li>
-                                    <li><a href="/frontend/index-2.html">Home variation 2</a></li>
+                                    <li><a href="{{ asset('frontend/index.html')}}">Home variation 1</a></li>
+                                    <li><a href="{{ asset('frontend/index-2.html')}}">Home variation 2</a></li>
                                 </ul>
                             </li>
-                            <li><a href="/frontend/shop-gird.html">Women</a>
+                            <li><a href="{{ asset('frontend/shop-gird.html')}}">Women</a>
                                 <ul>
-                                    <li><a href="/frontend/shop-gird.html">Tops</a>
+                                    <li><a href="{{ asset('frontend/shop-gird.html')}}">Tops</a>
                                         <ul>
-                                            <li><a href="/frontend/shop-gird.html">T-Shirts</a></li>
-                                            <li><a href="/frontend/shop-gird.html">Blouses</a></li>
+                                            <li><a href="{{ asset('frontend/shop-gird.html')}}">T-Shirts</a></li>
+                                            <li><a href="{{ asset('frontend/shop-gird.html')}}">Blouses</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="/frontend/shop-gird.html">Dresses</a>
+                                    <li><a href="{{ asset('frontend/shop-gird.html')}}">Dresses</a>
                                         <ul>
-                                            <li><a href="/frontend/shop-gird.html">Casual Dresses</a></li>
-                                            <li><a href="/frontend/shop-gird.html">Summer Dresses</a></li>
-                                            <li><a href="/frontend/shop-gird.html">Evening Dresses</a></li>
+                                            <li><a href="{{ asset('frontend/shop-gird.html')}}">Casual Dresses</a></li>
+                                            <li><a href="{{ asset('frontend/shop-gird.html')}}">Summer Dresses</a></li>
+                                            <li><a href="{{ asset('frontend/shop-gird.html')}}">Evening Dresses</a></li>
                                         </ul>
                                     </li>
 
                                 </ul>
                             </li>
-                            <li><a href="/frontend/shop-gird.html">men</a>
+                            <li><a href="{{ asset('frontend/shop-gird.html')}}">men</a>
                                 <ul>
-                                    <li><a href="/frontend/shop-gird.html">Tops</a>
+                                    <li><a href="{{ asset('frontend/shop-gird.html')}}">Tops</a>
                                         <ul>
-                                            <li><a href="/frontend/shop-gird.html">Sports</a></li>
-                                            <li><a href="/frontend/shop-gird.html">Day</a></li>
-                                            <li><a href="/frontend/shop-gird.html">Evening</a></li>
+                                            <li><a href="{{ asset('frontend/shop-gird.html')}}">Sports</a></li>
+                                            <li><a href="{{ asset('frontend/shop-gird.html')}}">Day</a></li>
+                                            <li><a href="{{ asset('frontend/shop-gird.html')}}">Evening</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="/frontend/shop-gird.html">Blouses</a>
+                                    <li><a href="{{ asset('frontend/shop-gird.html')}}">Blouses</a>
                                         <ul>
-                                            <li><a href="/frontend/shop-gird.html">Handbag</a></li>
-                                            <li><a href="/frontend/shop-gird.html">Headphone</a></li>
-                                            <li><a href="/frontend/shop-gird.html">Houseware</a></li>
+                                            <li><a href="{{ asset('frontend/shop-gird.html')}}">Handbag</a></li>
+                                            <li><a href="{{ asset('frontend/shop-gird.html')}}">Headphone</a></li>
+                                            <li><a href="{{ asset('frontend/shop-gird.html')}}">Houseware</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="/frontend/shop-gird.html">Accessories</a>
+                                    <li><a href="{{ asset('frontend/shop-gird.html')}}">Accessories</a>
                                         <ul>
-                                            <li><a href="/frontend/shop-gird.html">Houseware</a></li>
-                                            <li><a href="/frontend/shop-gird.html">Home</a></li>
-                                            <li><a href="/frontend/shop-gird.html">Health & Beauty</a></li>
+                                            <li><a href="{{ asset('frontend/shop-gird.html')}}">Houseware</a></li>
+                                            <li><a href="{{ asset('frontend/shop-gird.html')}}">Home</a></li>
+                                            <li><a href="{{ asset('frontend/shop-gird.html')}}">Health & Beauty</a></li>
                                         </ul>
                                     </li>
                                 </ul>
                             </li>
-                            <li><a href="/frontend/shop-gird.html">clothing</a></li>
-                            <li><a href="/frontend/shop-gird.html">tops</a></li>
-                            <li><a href="/frontend/shop-gird.html">T-shirts</a></li>
-                            <li><a href="/frontend/#">Delivery</a></li>
-                            <li><a href="/frontend/about-us.html">About us</a></li>
+                            <li><a href="{{ asset('frontend/shop-gird.html')}}">clothing</a></li>
+                            <li><a href="{{ asset('frontend/shop-gird.html')}}">tops</a></li>
+                            <li><a href="{{ asset('frontend/shop-gird.html')}}">T-shirts</a></li>
+                            <li><a href="{{ asset('frontend/#')}}">Delivery</a></li>
+                            <li><a href="{{ asset('frontend/about-us.html')}}">About us</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -315,32 +324,27 @@
                     <!-- FOOTER-TOP-LEFT START -->
                     <div class="footer-top-left">
                         <!-- NEWSLETTER-AREA START -->
-                        <div class="newsletter-area">
-                            <h2>Bảng tin</h2>
-                            <p>Đăng ký danh sách gửi thư của chúng tôi để nhận thông tin cập nhật về sản phẩm mới, ưu đãi đặc biệt và thông tin giảm giá khác.</p>
-                            <form action="#">
-                                <div class="form-group newsletter-form-group">
-                                    <input type="text" class="form-control newsletter-form" placeholder="Nhập địa chỉ e-mail">
-                                    <input type="submit" class="newsletter-btn" name="submit" value="Đăng kí" />
-                                </div>
-                            </form>
-                        </div>
-                        <!-- NEWSLETTER-AREA END -->
-                        <!-- ABOUT-US-AREA START -->
                         <div class="about-us-area">
                             <h2>Về chúng tôi</h2>
-                            <p>Cửa hàng của chúng tôi làm việc dựa thêm phương châm khách hàng là thượng đế, cam kết luôn bán sản phẩm chính hãng, đúng giá.</p>
+                            <p>Cửa hàng của chúng tôi làm việc dựa thêm phương châm khách hàng là thượng đế, cam kết
+                                luôn bán sản phẩm chính hãng, đúng giá.</p>
                         </div>
                         <!-- ABOUT-US-AREA END -->
                         <!-- FLLOW-US-AREA START -->
                         <div class="fllow-us-area">
                             <h2>Theo dõi chúng tôi</h2>
                             <ul class="flow-us-link">
-                                <li><a href="https://www.facebook.com/phucbo9898/"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="https://www.facebook.com/phucbo9898/"><i class="fa fa-facebook"></i></a>
+                                </li>
                                 <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="https://mail.google.com/mail/u/0/#inbox"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a href="https://mail.google.com/mail/u/0/#inbox"><i class="fa fa-google-plus"></i></a>
+                                </li>
                             </ul>
                         </div>
+
+                        <!-- NEWSLETTER-AREA END -->
+                        <!-- ABOUT-US-AREA START -->
+
                         <!-- FLLOW-US-AREA END -->
                     </div>
                     <!-- FOOTER-TOP-LEFT END -->
@@ -359,7 +363,8 @@
                                                 <i class="fa fa-map-marker"></i>
                                             </div>
                                             <div class="info-text">
-                                                <p>Số 27 đường Cổ Linh, Phường Long Biên, Quận Long Biên, Thành Phố Hà Nội. </p>
+                                                <p>Số 27 đường Cổ Linh, Phường Long Biên, Quận Long Biên, Thành Phố Hà
+                                                    Nội. </p>
                                             </div>
                                         </li>
                                         <li>
@@ -375,58 +380,57 @@
                                                 <i class="fa fa-envelope-o"></i>
                                             </div>
                                             <div class="info-text">
-                                                <p>Email : <a href="https://mail.google.com/mail/u/0/#inbox"><i class="fa fa-angle-double-right"></i> phucbo9898@gmail.com</a></p>
+                                                <p>Email : <a href="https://mail.google.com/mail/u/0/#inbox"><i
+                                                            class="fa fa-angle-double-right"></i>
+                                                        phucbo9898@gmail.com</a></p>
                                             </div>
                                         </li>
                                     </ul>
                                 </div>
                                 <!-- STORE-INFORMATION END -->
                             </div>
-                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                                <!-- GOOGLE-MAP-AREA START -->
-                                <div class="google-map-area">
-                                    <div class="google-map">
-                                        <div id="googleMap" style="width:100%;height:150px;"></div>
+                            <div class="footer-top-right-2">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                                        <!-- FOTTER-MENU-WIDGET START -->
+                                        <div class="fotter-menu-widget">
+                                            <div class="single-f-widget">
+                                                <h2>Thông tin</h2>
+                                                <ul>
+                                                    <li><a href="{{ route('shop.contact') }}"><i
+                                                                class="fa fa-angle-double-right"></i>Liên hệ với chúng tôi</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <!-- FOTTER-MENU-WIDGET END -->
                                     </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                        <!-- FOTTER-MENU-WIDGET START -->
+                                        <div class="fotter-menu-widget">
+                                            <div class="single-f-widget">
+                                                <h2>Tài khoản của tôi</h2>
+                                                <ul>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i>Đơn đặt hàng của tôi</a>
+                                                    </li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i>Địa chỉ của tôi</a>
+                                                    </li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i>Thông tin cá nhân
+                                                            của tôi</a></li>
+                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i>Đăng xuất</a></li>
+
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <!-- FOTTER-MENU-WIDGET END -->
+                                    </div>
+
                                 </div>
-                                <!-- GOOGLE-MAP-AREA END -->
                             </div>
                         </div>
                     </div>
                     <!-- FOOTER-TOP-RIGHT-1 END -->
-                    <div class="footer-top-right-2">
-                        <div class="row">
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
-                                <!-- FOTTER-MENU-WIDGET START -->
-                                <div class="fotter-menu-widget">
-                                    <div class="single-f-widget">
-                                        <h2>Thông tin</h2>
-                                        <ul>
-                                            <li><a href="{{ route('shop.contact') }}"><i class="fa fa-angle-double-right"></i>Liên hệ với chúng tôi</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!-- FOTTER-MENU-WIDGET END -->
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                <!-- FOTTER-MENU-WIDGET START -->
-                                <div class="fotter-menu-widget">
-                                    <div class="single-f-widget">
-                                        <h2>Tài khoản của tôi</h2>
-                                        <ul>
-                                            <li><a href="#"><i class="fa fa-angle-double-right"></i>Đơn đặt hàng của tôi</a></li>
-                                            <li><a href="#"><i class="fa fa-angle-double-right"></i>Địa chỉ của tôi</a></li>
-                                            <li><a href="#"><i class="fa fa-angle-double-right"></i>Thông tin cá nhân của tôi</a></li>
-                                            <li><a href="#"><i class="fa fa-angle-double-right"></i>Đăng xuất</a></li>
 
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!-- FOTTER-MENU-WIDGET END -->
-                            </div>
-
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -438,11 +442,17 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="copy-right">
-                    <address>Copyright © 2015 <a href="/frontend/http://bootexperts.com/">BootExperts</a> All Rights Reserved</address>
+                <div class="copy-right" style="text-align: center;color: white;">
+                    <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                        All rights reserved | This template is made with <i class="icon-heart color-danger"
+                                                                            aria-hidden="true"></i> by♥ <a
+                            href="https://colorlib.com" target="_blank">Colorlib</a>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </p>
                 </div>
                 <div class="scroll-to-top">
-                    <a href="/frontend/#" class="bstore-scrollertop"><i class="fa fa-angle-double-up"></i></a>
+                    <a href="{{ asset('frontend/#')}}" class="bstore-scrollertop"><i class="fa fa-angle-double-up"></i></a>
                 </div>
             </div>
         </div>
@@ -452,37 +462,37 @@
 <!-- JS
 		===============================================-->
 <!-- jquery js -->
-<script src="/frontend/js/vendor/jquery-1.11.3.min.js"></script>
+<script src="{{ asset('frontend/js/vendor/jquery-1.11.3.min.js') }}"></script>
 
 <!-- fancybox js -->
-<script src="/frontend/js/jquery.fancybox.js"></script>
+<script src="{{ asset('frontend/js/jquery.fancybox.js')}}"></script>
 
 <!-- bxslider js -->
-<script src="/frontend/js/jquery.bxslider.min.js"></script>
+<script src="{{ asset('frontend/js/jquery.bxslider.min.js')}}"></script>
 
 <!-- meanmenu js -->
-<script src="/frontend/js/jquery.meanmenu.js"></script>
+<script src="{{ asset('frontend/js/jquery.meanmenu.js')}}"></script>
 
 <!-- owl carousel js -->
-<script src="/frontend/js/owl.carousel.min.js"></script>
+<script src="{{ asset('frontend/js/owl.carousel.min.js')}}"></script>
 
 <!-- nivo slider js -->
-<script src="/frontend/js/jquery.nivo.slider.js"></script>
+<script src="{{ asset('frontend/js/jquery.nivo.slider.js')}}"></script>
 
 <!-- jqueryui js -->
-<script src="/frontend/js/jqueryui.js"></script>
+<script src="{{ asset('frontend/js/jqueryui.js')}}"></script>
 
 <!-- bootstrap js -->
-<script src="/frontend/js/bootstrap.min.js"></script>
+<script src="{{ asset('frontend/js/bootstrap.min.js')}}"></script>
 
 <!-- wow js -->
-<script src="/frontend/js/wow.js"></script>
+<script src="{{ asset('frontend/js/wow.js')}}"></script>
 <script>
     new WOW().init();
 </script>
 
 <!-- Google Map js -->
-<script src="/frontend/https://maps.googleapis.com/maps/api/js"></script>
+<script src="{{ asset('frontend/https://maps.googleapis.com/maps/api/js')}}"></script>
 <script>
     function initialize() {
         var mapOptions = {
@@ -497,10 +507,11 @@
             map: map
         });
     }
+
     google.maps.event.addDomListener(window, 'load', initialize);
 </script>
 <!-- main js -->
-<script src="/frontend/js/main.js"></script>
+<script src="{{ asset('frontend/js/main.js')}}"></script>
 </body>
 
 

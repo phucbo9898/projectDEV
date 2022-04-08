@@ -611,7 +611,7 @@
 				this._state.value = this.options.value;
 			}
 			else if (this.options.range) {
-				// user wants a range, but value is not an array
+				// User wants a range, but value is not an array
 				this._state.value = [this.options.value, this.options.max];
 			}
 			else {
