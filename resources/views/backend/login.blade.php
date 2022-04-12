@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html style="background-image: linear-gradient(to right, #0d6aad, #0a90eb);!important;">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,10 +29,10 @@
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
-<body class="hold-transition login-page">
+<body class="hold-transition login-page" style="background-image: linear-gradient(to right, #0d6aad, #0a90eb);!important;">
 <div class="login-box">
     <div class="login-logo">
-        <a href=""><b>Login</b></a>
+        <a href="" style="color: #00a157;"><b>Đăng nhập</b></a>
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body">

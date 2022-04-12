@@ -63,25 +63,9 @@
                                     {{ Auth::user()->name }}
                                 </span>
                             </a>
-                            <ul class="dropdown-menu">
-                                <!-- user image -->
-                                <li class="user-header">
-                                    <img class="user-image" src="{{ asset(Auth::user()->avatar) }}">
-{{--                                    @foreach($users as $user)--}}
-{{--                                        <img src="{{ asset($user->image) }}" class="user-image" alt="User Image">--}}
-{{--                                    @endforeach--}}
-                                </li>
-
-                                <!-- Menu Footer-->
-                                <li class="user-footer">
-                                    <div class="pull-left">
-                                        <a href="#" class="btn btn-default btn-flat">Thiết lập</a>
-                                    </div>
-                                    <div class="pull-right">
-                                        <a href="{{ route('admin.logout') }}" class="btn btn-default btn-flat">Thoát</a>
-                                    </div>
-                                </li>
-                            </ul>
+                            <div class="dropdown-toggle">
+                                <a href="{{ route('admin.logout') }}" class="btn btn-default btn-flat">Thoát</a>
+                            </div>
                         </li>
 
                     @endif

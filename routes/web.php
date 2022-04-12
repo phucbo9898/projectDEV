@@ -44,6 +44,11 @@ Route::get('/tin-tuc' , 'ShopController@articles')->name('shop.article');
 // Chi tiết tin tức
 Route::get('/chi-tiet-tin-tuc/{slug}','ShopController@detailArticle')->name('shop.detailArticle');
 
+//Danh sách sản phẩm trong giỏ hàng
+Route::get('/gio-hang','CartController@index')->name('shop.cart');
+//Thêm sản phẩm vào giỏ hàng
+Route::get('/gio-hang/them-san-pham-vao-gio-hang/{product_id}','CartController@addToCart')->name('shop.cart.add-to-cart');
+
 // Đăng nhập ( ->name('admin.login') là đặt tên cho đường dẫn)
 Route::get('/admin/login', 'AdminController@login')->name('admin.login');
 
