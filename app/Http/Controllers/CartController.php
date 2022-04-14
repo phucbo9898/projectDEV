@@ -7,6 +7,7 @@ use App\Order;
 use App\Product;
 use App\OrderDetail;
 
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use League\Flysystem\Exception;
@@ -19,12 +20,12 @@ class CartController extends GeneralController
     public function index()
     {
         //Lấy toàn bộ sản phẩm trong giỏ hàng
-        $listProduct=Cart::content();
+        $listProducts = Cart::content();
 
         //Lấy tổng giá của đơn hàng
         $totalPrice=Cart::total(0,'','',''.'');
         return view('frontend.cart.index', [
-            'cart'=>$listProduct,
+            'cart'=>$listProducts,
             'totalPrice'=>$totalPrice,
         ]);
     }
@@ -50,7 +51,7 @@ class CartController extends GeneralController
         ];
 
         //Gọi đến thư viện thêm sản phẩm vào giỏ hàng
-        Cart::add($cartInfo);
+        (new \App\Cart)->add($cartInfo);
 
         session(['totalItem' => Cart::count()]);
 
@@ -66,8 +67,13 @@ class CartController extends GeneralController
         //Xóa sản phẩm trong giỏ
         Cart::remove($rowId);
 
-        $listProduct=Cart::content();
-        $totalPrice=Cart::total(0,'','',''.'');
+        $listProducts = Cart::content();
+        $totalPrice = Cart::total(0,'','',''.'');
+
+        return view('frontend.components.cart', [
+            'cart' => $listProducts,
+            'totalPrice' => $totalPrice
+        ]);
     }
 
     /**
@@ -126,7 +132,7 @@ class CartController extends GeneralController
     {
         // validate lại thông tin nhập từ form
         $request->validate([
-            'fullname' => 'required|max:255',
+            'name' => 'required|max:255',
             'phone' => 'required',
             'email' => 'required|email',
             'address' => 'required',

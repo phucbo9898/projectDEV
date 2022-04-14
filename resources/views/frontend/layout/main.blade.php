@@ -138,7 +138,8 @@
             <div class="col-sm-12">
                 <!-- LOGO START -->
                 <div class="logo">
-                    <a href=""><img src="{{ asset('frontend/img/logo.png')}}" alt="bstore logo"/></a>
+                    <a href=""><img style="height: 80px;
+    width: 80px;" src="{{ asset('frontend/img/logo.png')}}" alt="bstore logo"/></a>
                 </div>
                 <!-- LOGO END -->
                 <!-- HEADER-RIGHT-CALLUS START -->
@@ -279,6 +280,7 @@
 <section class="main-content-section">
     <div class="container">
         @yield('main-content')
+
     </div>
 </section>
 <!-- MAIN-CONTENT-SECTION END -->

@@ -135,7 +135,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="{{ route('admin.order.index') }}">
                         <i class="fa fa-check-square"></i> <span>Quản Lý Đặt Hàng</span>
                     </a>
                 </li>

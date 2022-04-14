@@ -49,6 +49,21 @@ Route::get('/gio-hang','CartController@index')->name('shop.cart');
 //Thêm sản phẩm vào giỏ hàng
 Route::get('/gio-hang/them-san-pham-vao-gio-hang/{product_id}','CartController@addToCart')->name('shop.cart.add-to-cart');
 
+// Xóa SP khỏi giỏ hàng
+Route::get('/gio-hang/xoa-sp-gio-hang/{id}', 'CartController@removeToCart')->name('shop.cart.remove-to-cart');
+// Cập nhật giỏ hàng
+Route::get('/gio-hang/cap-nhat-so-luong-sp', 'CartController@updateToCart')->name('shop.cart.update-to-cart');
+// Hủy đơn đặt hàng
+Route::get('/gio-hang/huy-don-hang', 'CartController@destroy')->name('shop.cart.destroy');
+
+Route::get('/dat-hang', 'CartController@order')->name('shop.cart.order');
+
+Route::post('/dat-hang', 'CartController@postOrder')->name('shop.cart.postOrder');
+
+Route::get('/dat-hang/hoan-tat-dat-hang', 'CartController@completedOrder')->name('shop.cart.completedOrder');
+
+Route::get('/thanh-toan', 'CartController@checkout')->name('shop.cart.checkout');
+
 // Đăng nhập ( ->name('admin.login') là đặt tên cho đường dẫn)
 Route::get('/admin/login', 'AdminController@login')->name('admin.login');
 
@@ -75,6 +90,9 @@ Route::group(['prefix' => 'admin','as' => 'admin.', 'middleware' => 'checkLogin'
     Route::resource('dashboard', 'DashboardController');
     // Route::resource('setting', 'SettingController');
     //Route::get('/category', 'CategoryController@index');
+    //QL đơn hàng
+    Route::resource('order', 'OrderController');
+    Route::post('order/remove-to-cart', 'OrderController@removeToCart')->name('order.remove');
 });
 
 

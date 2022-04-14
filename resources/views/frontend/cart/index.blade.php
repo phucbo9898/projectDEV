@@ -1,4 +1,4 @@
-@extends('frontend.layouts.main')
+@extends('frontend.layout.main')
 
 @section('main-content')
     <div id="my-cart">

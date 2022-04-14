@@ -7,13 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * @method static content()
  * @method static total(int $int, string $string, string $string1, string $string2)
- * @method add(array $cartInfo)
  * @method static count()
- * @method static remove($rowId)
  */
 class Cart extends Model
 {
-//    public $product; //Danh sách sản phẩm
+//    public $products; //Danh sách sản phẩm
 //    public $totalPrice=0; //Tổng số tiền
 //    public $totalQty=0; //Tống số sp
 //
@@ -59,4 +57,12 @@ class Cart extends Model
 //
 //        unset($this->products[$id]);
 //    }
+    public static function remove($rowId)
+    {
+    }
+
+    public function add(array $cartInfo)
+    {
+
+    }
 }

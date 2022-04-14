@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Article;
 use App\Order;
-use App\Product;
-use App\User;
+use App\OrderStatus;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
 
-class DashboardController extends Controller
+class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,24 +16,11 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $product_count=Product::count();
-        $order_count=Order::count();
-        $customer_count=User::count();
-        $article_count=Article::count();
-//        $data = Product::all();
-//        $countProduct = Product::count();
-//        dd($countProduct);
-        $data = Product::latest()->paginate(10);    // Lấy dữ liệu phân trang
-        $users = User::all();
-        $data1 = [
-            'product_count'=>$product_count,
-            'order_count'=>$order_count,
-            'customer_count'=>$customer_count,
-            'article_count'=>$article_count,
-            'data'=>$data,
-            'users'=>$users
-        ];
-        return view('backend.dashboard.index', $data1);
+        $orders = Order::latest()->paginate(20);
+
+        return view('backend.order.index', [
+            'data' => $orders
+        ]);
     }
 
     /**
@@ -66,7 +52,7 @@ class DashboardController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -77,7 +63,16 @@ class DashboardController extends Controller
      */
     public function edit($id)
     {
-        //
+        // lấy chi tiết đơn hàng
+        $order = Order::find($id);
+        // lấy tât cả trạng thái đơn hàng lưu trong database, cái này chưa có chức năng quản trị
+        // các em về làm thêm chức năng Create,update, edit,..
+         $order_status = OrderStatus::all();
+
+        return view('backend.order.edit', [
+            'order' => $order,
+             'order_status' => $order_status
+        ]);
     }
 
     /**
@@ -89,7 +84,17 @@ class DashboardController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $address2 = $request->address2;
+        $note = $request->note;
+        $id_status = $request->order_status_id;
+
+        $order = Order::findorFail($id);
+        $order->address2 = $address2;
+        $order->note = $note;
+        $order->order_status_id = $id_status;
+        $order->save();
+
+        return redirect()->back()->with('msg', 'Cập nhật đơn hàng thành công');
     }
 
     /**
@@ -101,5 +106,16 @@ class DashboardController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function removeToCart(Request $request)
+    {
+        $order_detail_id = $request->input('order_detail_id');
+        $order_id = $request->input('order_id');
+
+        return response()->json([
+            'status'  => true ,
+            'data' => 'Xóa sản phẩm thành công'
+        ]);
     }
 }
