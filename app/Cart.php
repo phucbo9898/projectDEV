@@ -31,7 +31,7 @@ class Cart extends Model
 //    {
 //        $_item = [
 //            'qty' => 0,
-//            'price' => $product->sale,
+//            'price' => $product->price,
 //            'item' => $product,
 //        ];
 //
@@ -40,10 +40,10 @@ class Cart extends Model
 //        }
 //
 //        $_item['qty']++;
-//        $_item['price'] = $_item['qty'] * $product->sale;
+//        $_item['price'] = $_item['qty'] * $product->price;
 //
 //        $this->products[$product->id] = $_item;
-//        $this->totalPrice = $this->totalPrice + $product->sale;
+//        $this->totalPrice = $this->totalPrice + $product->price;
 //        $this->totalQty = $this->totalQty + 1; //Tăng lên 1 sản phẩm
 //    }
 //
@@ -57,12 +57,5 @@ class Cart extends Model
 //
 //        unset($this->products[$id]);
 //    }
-    public static function remove($rowId)
-    {
-    }
 
-    public function add(array $cartInfo)
-    {
-
-    }
 }

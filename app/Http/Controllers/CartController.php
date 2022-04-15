@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Cart;
+use Cart;
 use App\Order;
 use App\Product;
 use App\OrderDetail;
 
-
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use League\Flysystem\Exception;
@@ -30,11 +30,7 @@ class CartController extends GeneralController
         ]);
     }
 
-    /**
-     * Thêm sản phẩm vào giỏ hàng
-     * @param  Request $request
-     *@param $id
-     */
+
     public function addToCart($id, $qty=1): \Illuminate\Http\RedirectResponse
     {
         $product = Product::findOrFail($id);
@@ -44,15 +40,13 @@ class CartController extends GeneralController
             'id' => $product->id,
             'name' => $product->name,
             'qty' => $qty,
-            'price' => $product->sale,
+            'price' => $product->price,
             'options' => [
                 'image' => $product->image,
             ]
         ];
-
         //Gọi đến thư viện thêm sản phẩm vào giỏ hàng
-        (new \App\Cart)->add($cartInfo);
-
+        Cart::add($cartInfo);
         session(['totalItem' => Cart::count()]);
 
         // chuyển về trang danh sách sản phảm trong giỏ hàng
@@ -85,7 +79,7 @@ class CartController extends GeneralController
         $qty = (int) $request->input('qty');
 
         // cập nhật lại số lương
-        Cart::update($rowId, ['qty' => $qty]);
+        (new \App\Cart)->update($rowId, ['qty' => $qty]);
 
         $listProducts = Cart::content(); // lấy toàn sản phẩm trong giỏ
         $totalPrice = Cart::total(0,",","."); // lấy tổng giá của sản phẩm

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 2 | General Form Elements</title>
+    <title>Trang quản trị</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -36,9 +36,9 @@
         <!-- Logo -->
         <a href="{{ route('admin.dashboard.index') }}" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
-            <span class="logo-mini"><b>A</b>LT</span>
+            <span class="logo-mini"></span>
             <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg"><b>Admin</b>LTE</span>
+            <span class="logo-lg"><b>Admin Page</b></span>
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top">
@@ -54,20 +54,18 @@
                 <ul class="nav navbar-nav">
                     @if(Auth::check())
                         <li class="dropdown user user-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                 <img class="user-image" src="{{ asset(Auth::user()->avatar) }}">
-{{--                                @foreach($users as $user)--}}
-{{--                                    <img src="{{ ass    et($user->image) }}" class="user-image" alt="User Image">--}}
-{{--                                @endforeach--}}
+                                {{--                                @foreach($users as $user)--}}
+                                {{--                                    <img src="{{ ass    et($user->image) }}" class="user-image" alt="User Image">--}}
+                                {{--                                @endforeach--}}
                                 <span class="hidden-xs">
-                                    {{ Auth::user()->name }}
-                                </span>
-                            </a>
-                            <div class="dropdown-toggle">
-                                <a href="{{ route('admin.logout') }}" class="btn btn-default btn-flat">Thoát</a>
-                            </div>
-                        </li>
+                                        {{ Auth::user()->name }}
+                                    </span>
 
+
+
+                        </li>
                     @endif
                 </ul>
             </div>
@@ -106,47 +104,62 @@
             <ul class="sidebar-menu" data-widget="tree">
                 <li>
                     <a href="{{ route('admin.dashboard.index') }}">
-                        <i class="fa fa-edit"></i> <span>Dashboard</span>
+                        <i class="fa fa-edit"></i>
+                        <span>Dashboard</span>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('admin.category.index') }}">
-                        <i class="fa fa-folder"></i> <span>Quản Lý Danh Mục</span>
+                        <i class="fa fa-folder"></i>
+                        <span>Quản Lý Danh Mục</span>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('admin.brand.index') }}">
-                        <i class="fa fa-empire"></i> <span>Quản Lý Thương Hiệu</span>
+                        <i class="fa fa-empire"></i>
+                        <span>Quản Lý Thương Hiệu</span>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('admin.product.index') }}">
-                        <i class="fa fa-tasks"></i> <span>Quản Lý Sản Phẩm</span>
+                        <i class="fa fa-tasks"></i>
+                        <span>Quản Lý Sản Phẩm</span>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('admin.article.index') }}">
-                        <i class="fa fa-newspaper-o"></i> <span>Quản Lý Tin Tức</span>
+                        <i class="fa fa-newspaper-o"></i>
+                        <span>Quản Lý Tin Tức</span>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('admin.banner.index') }}">
-                        <i class="fa fa-photo"></i> <span>Quản Lý Thư Viện</span>
+                        <i class="fa fa-photo"></i>
+                        <span>Quản Lý Thư Viện</span>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('admin.order.index') }}">
-                        <i class="fa fa-check-square"></i> <span>Quản Lý Đặt Hàng</span>
+                        <i class="fa fa-check-square"></i>
+                        <span>Quản Lý Đặt Hàng</span>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('admin.user.index') }}">
-                        <i class="fa fa-user"></i> <span>Quản Lý Người Dùng</span>
+                        <i class="fa fa-user"></i>
+                        <span>Quản Lý Người Dùng</span>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('admin.contact.index') }}">
-                        <i class="fa fa-comment"></i> <span>Quản Lý Liên Hệ</span>
+                        <i class="fa fa-comment"></i>
+                        <span>Quản Lý Liên Hệ</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('admin.logout') }}">
+                        <i class="fa fa-optin-monster"></i>
+                        <span>Đăng xuất</span>
                     </a>
                 </li>
 
@@ -165,7 +178,7 @@
         <div class="pull-right hidden-xs">
             <b>Version</b> 2.4.18
         </div>
-        <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE</a>.</strong> All rights
+        <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">Trang quản trị</a>.</strong> All rights
         reserved.
     </footer>
 
