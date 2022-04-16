@@ -60,11 +60,9 @@
                                 {{--                                    <img src="{{ ass    et($user->image) }}" class="user-image" alt="User Image">--}}
                                 {{--                                @endforeach--}}
                                 <span class="hidden-xs">
-                                        {{ Auth::user()->name }}
-                                    </span>
-
-
-
+                                    {{ Auth::user()->name }}
+                                </span>
+                            </a>
                         </li>
                     @endif
                 </ul>
@@ -154,6 +152,12 @@
                     <a href="{{ route('admin.contact.index') }}">
                         <i class="fa fa-comment"></i>
                         <span>Quản Lý Liên Hệ</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('admin.contact.index') }}">
+                        <i class="fa fa-comment"></i>
+                        <span>Quản Lý Báo cáo thống kê</span>
                     </a>
                 </li>
                 <li>

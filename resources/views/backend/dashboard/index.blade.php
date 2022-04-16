@@ -77,9 +77,7 @@
         <div class="nav-tabs-custom" style="cursor: move;">
             <!-- Tabs within a box -->
             <ul class="nav nav-tabs pull-right ui-sortable-handle">
-                <li class="active"><a href="#revenue-chart" data-toggle="tab">Area</a></li>
-                <li><a href="#sales-chart" data-toggle="tab">Donut</a></li>
-                <li class="pull-left header"><i class="fa fa-inbox"></i> Sales</li>
+                <li class="pull-left header"><i class="fa fa-inbox"></i> Biểu đồ thống kê doanh thu</li>
             </ul>
             <div class="tab-content no-padding">
                 <!-- Morris chart - Sales -->
