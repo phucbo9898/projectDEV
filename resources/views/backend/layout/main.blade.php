@@ -65,6 +65,9 @@
                             </a>
                         </li>
                     @endif
+                    <li>
+                        <a href="{{ route('admin.logout') }}"><i class="fa fa-gears"></i></a>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -74,30 +77,24 @@
         <!-- sidebar: style can be found in sidebar.less -->
         <section class="sidebar">
             <!-- Sidebar user panel -->
-            <div class="user-panel">
+            <div class="user-panel" style="width: 272px;
+                                            height: 45px;
+                                            margin: 0px 0px -30px -35px">
                 @if(Auth::check())
-                    <li class="dropdown user user-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <li class="dropdown user user-menu" style="padding: 0px !important;
+                                                                left: 0px !important;
+                                                                margin: 2px 0px 0 28px;}">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="font-size:20px;">
                             <span class="hidden-xs">
-                                {{ Auth::user()->name }}
+                               Admin - {{ Auth::user()->name }}
                             </span>
                         </a>
 
                     </li>
 
                 @endif
-            </div>
-            <!-- search form -->
-            <form action="#" method="get" class="sidebar-form">
-                <div class="input-group">
-                    <input type="text" name="q" class="form-control" placeholder="Search...">
-                    <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                </button>
-              </span>
-                </div>
-            </form>
-            <!-- /.search form -->
+            </div> <br><hr>
+
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu" data-widget="tree">
                 <li>
@@ -155,8 +152,8 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('admin.contact.index') }}">
-                        <i class="fa fa-comment"></i>
+                    <a href="#">
+                        <i class="fa fa-bar-chart"></i>
                         <span>Quản Lý Báo cáo thống kê</span>
                     </a>
                 </li>
