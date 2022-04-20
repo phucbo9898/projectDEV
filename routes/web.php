@@ -76,7 +76,7 @@ Route::get('/admin', 'AdminController@login')->name('admin.index');
 //------------------ Quản trị --------------------------------------------
 // Gom nhóm các route
 Route::group(['prefix' => 'admin','as' => 'admin.', 'middleware' => 'checkLogin'], function() {
-    
+
 
     // Route::get('/duong-dan', 'ten-controller@method');
     Route::resource('banner', 'BannerController');

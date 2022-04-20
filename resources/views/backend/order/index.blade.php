@@ -11,19 +11,6 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="box">
-                    <div class="box-header">
-                        <div class="box-tools">
-                            <div class="input-group input-group-sm hidden-xs" style="width: 150px;">
-                                <input type="text" name="table_search" class="form-control pull-right"
-                                       placeholder="Search">
-
-                                <div class="input-group-btn">
-                                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.box-header -->
                     <div class="box-body">
                         <table class="table table-bordered">
                             <tbody>
@@ -66,6 +53,12 @@
                                         <a href="{{route('admin.order.edit', ['id'=> $item->id ])}}">
                                             <span title="Edit" type="button" class="btn btn-flat btn-primary">Chi tiết</span>
                                         </a>&nbsp;
+                                        {{--Chức năng xóa ( phải có chống bảo mật @csrf và @method('DELETE')--}}
+                                        <form style="display: inline-block;" action="{{ route('admin.order.destroy', ['id' => $item->id ]) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger">Xóa</button>
+                                        </form>
                                     </td>
                             @endforeach
                         </table>

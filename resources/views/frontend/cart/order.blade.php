@@ -7,10 +7,10 @@
             <div class="container">
                 <div class="row justify-content-center">
                     @if(!session('msg'))
-                        <div class="col-xl-7 ftco-animate">
+                        <div class="col-xl-7 ftco-animate" style="margin: 10px 10px;">
                             <form action="{{ route('shop.cart.postOrder') }}" class="billing-form" method="post">
                                 @csrf
-                                <h3 class="mb-4 billing-heading">Thông tin đặt hàng</h3>
+                                <h2 class="mb-4 billing-heading" style="font-size: 20px; margin: 20px 10px"><b>Thông tin đặt hàng</b></h2>
                                 <div class="row align-items-end">
                                     <div class="col-md-12">
                                         <div class="form-group">

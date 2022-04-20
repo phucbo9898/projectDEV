@@ -66,9 +66,7 @@
                                                     <i class="fa fa-star"></i>
                                                     <i class="fa fa-star-half-empty"></i>
                                                 </div>
-                                                <div class="review-box">
-                                                    <span>1 Review (s)</span>
-                                                </div>
+
                                             </div>
                                             <a href="{{ route('shop.product',['slug' => $product->slug]) }}">{{ $product->name }}</a>
                                             <div class="price-box">

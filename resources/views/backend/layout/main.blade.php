@@ -66,7 +66,7 @@
                         </li>
                     @endif
                     <li>
-                        <a href="{{ route('admin.logout') }}"><i class="fa fa-gears"></i></a>
+                        <a href="{{ route('shop.home') }}"><i class="fa fa-gears"></i></a>
                     </li>
                 </ul>
             </div>
@@ -135,7 +135,7 @@
                 </li>
                 <li>
                     <a href="{{ route('admin.order.index') }}">
-                        <i class="fa fa-check-square"></i>
+                        <i class="fa fa-shopping-cart"></i>
                         <span>Quản Lý Đặt Hàng</span>
                     </a>
                 </li>

@@ -55,10 +55,9 @@
                                         <a href="{{ route('shop.product',['slug' => $product->slug]) }}"><img src="{{ asset($product->image) }}" alt="product-image" /></a>
                                         <div class="overlay-content">
                                             <ul>
-                                                <li><a href="{{ asset('frontend/#')}}" title="Quick view"><i class="fa fa-search"></i></a></li>
-                                                <li><a href="{{ asset('frontend/#')}}" title="Quick view"><i class="fa fa-shopping-cart"></i></a></li>
-                                                <li><a href="{{ asset('frontend/#')}}" title="Quick view"><i class="fa fa-retweet"></i></a></li>
-                                                <li><a href="{{ asset('frontend/#')}}" title="Quick view"><i class="fa fa-heart-o"></i></a></li>
+                                                <li><a href="{{ route('shop.product',['slug' => $product->slug]) }}" title="Quick view"><i class="fa fa-search"></i></a></li>
+                                                <li><a href="{{ route('shop.cart.add-to-cart', ['id'=> $product->id]) }}" title="Quick view"><i
+                                                            class="fa fa-shopping-cart"></i></a></li>
                                             </ul>
                                         </div>
                                     </div>

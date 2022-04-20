@@ -3,9 +3,9 @@
     <section class="main-content-section">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin: 10px 10px;">
                     <!-- SHOPPING-CART SUMMARY START -->
-                    <h2 class="page-title">Thông tin giỏ hàng<span class="shop-pro-item">Your shopping cart contains: 2 products</span>
+                    <h2 class="page-title" style="font-size: 20px;"> Thông tin giỏ hàng<span class="shop-pro-item"></span>
                     </h2>
                     <!-- SHOPPING-CART SUMMARY END -->
                 </div>

@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use League\Flysystem\Exception;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class CartController extends GeneralController
 {
@@ -90,6 +91,7 @@ class CartController extends GeneralController
         ]);
     }
 
+
     /**
      * Hủy đơn hàng
      */
@@ -130,6 +132,11 @@ class CartController extends GeneralController
             'phone' => 'required',
             'email' => 'required|email',
             'address' => 'required',
+        ], [
+            'fullname.required'=>'Nhập họ và tên',
+            'phone.required'=>'Nhập sô điện thoại',
+            'email.required'=>'Nhập email',
+            'address.required'=>'Nhập địa chỉ nhận hàng',
         ]);
 
         // Lưu vào bảng đơn đặt hàng - orders

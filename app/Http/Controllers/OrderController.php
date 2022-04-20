@@ -105,7 +105,8 @@ class OrderController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Order::destroy($id);
+        return redirect()->route('admin.order.index');
     }
 
     public function removeToCart(Request $request)

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th4 12, 2022 lúc 01:22 PM
+-- Thời gian đã tạo: Th4 20, 2022 lúc 04:40 PM
 -- Phiên bản máy phục vụ: 10.4.22-MariaDB
 -- Phiên bản PHP: 7.4.26
 
@@ -120,6 +120,22 @@ INSERT INTO `brands` (`id`, `name`, `slug`, `image`, `website`, `position`, `is_
 -- --------------------------------------------------------
 
 --
+-- Cấu trúc bảng cho bảng `carts`
+--
+
+CREATE TABLE `carts` (
+  `ID` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `price` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `qty` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Cấu trúc bảng cho bảng `categories`
 --
 
@@ -220,7 +236,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (13, '2020_02_06_125433_create_vendors_table', 4),
 (14, '2020_02_06_125734_create_brands_table', 5),
 (15, '2020_03_04_083632_create_products_table', 6),
-(17, '2020_03_05_122445_create_contacts_table', 7);
+(17, '2020_03_05_122445_create_contacts_table', 7),
+(20, '2022_04_14_095542_create_shoppingcart_table', 8);
 
 -- --------------------------------------------------------
 
@@ -252,13 +269,9 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `code`, `fullname`, `email`, `address`, `address2`, `phone`, `discount`, `note`, `coupon`, `total`, `user_id`, `order_status_id`, `payment_id`, `created_at`, `updated_at`) VALUES
-(9, NULL, 'Hoàng Công Dũng', 'dungthuy2109@gmail.com', 'HN', NULL, '0986346007', 0, NULL, '0', 25970000, 0, 4, 0, '2020-05-19 12:18:21', '2020-05-19 12:18:21'),
-(10, NULL, 'Hoàng Công Dũng', 'hcdung2109@gmail.com', 'HN', NULL, '0986346006', 11395000, 'AB', 'SHOP-K2', 22790000, 0, 1, 0, '2020-05-20 09:55:45', '2020-05-20 09:55:45'),
-(11, 'DH-11-20052020', 'Trần Thuỷ', 'thuthuy@gmail.com', 'Long Biên , Hà nội', NULL, '0986346008', 3995000, 'ko', 'SHOP-K2', 7990000, 0, 1, 0, '2020-05-20 11:01:38', '2020-05-20 11:01:38'),
-(12, 'DH-12-21052020', 'Trần Thuỷ', 'dungthuy2109@gmail.com', 'HN', NULL, '0986346008', 0, NULL, NULL, 15980000, 0, 1, 0, '2020-05-21 07:41:24', '2020-05-21 07:41:24'),
-(13, 'DH-13-21052020', 'Trần Thuỷ', 'dungthuy2109@gmail.com', 'HN', NULL, '0986346008', 0, NULL, NULL, 15980000, 0, 2, 0, '2020-05-21 07:42:09', '2020-05-21 07:42:09'),
-(14, 'DH-14-23052020', 'Trần Thuỷ', 'hcdung2109@gmail.com', 'Bắc Ninh', 'fdfd', '0986346008', 0, 'kfdsfsdf', NULL, 23390000, 0, 3, 0, '2020-05-23 00:30:46', '2020-05-25 23:46:41'),
-(15, 'DH-15-26052020', 'HCDUNG', 'hcdung2109@gmail.com', 'Tầng 6, Tòa CT Building , Đống Đa , HN', NULL, '0986346008', 0, 'Giao hàng ngoài 17h', NULL, 7990000, 0, 2, 0, '2020-05-25 23:59:42', '2020-05-26 00:05:38');
+(17, 'DH-17-20042022', 'Phuc Vu', 'phucbo9898@gmail.com', 'Đề Thám Thái Bình', NULL, '0969908298', 0, NULL, '0', 2904000, 0, 1, 0, '2022-04-19 23:40:46', '2022-04-19 23:40:46'),
+(18, 'DH-18-20042022', 'Phuc Vu', 'phucbo9898@gmail.com', 'Đề Thám Thái Bình', NULL, '0969.908.298', 0, NULL, '0', 2904000, 0, 3, 0, '2022-04-19 23:47:21', '2022-04-20 02:16:52'),
+(19, 'DH-19-20042022', 'Phuc Vu', 'phucbo9898@gmail.com', 'Đề Thám Thái Bình', NULL, '0969908298', 0, NULL, '0', 1452000, 0, 2, 0, '2022-04-19 23:57:22', '2022-04-20 02:16:42');
 
 -- --------------------------------------------------------
 
@@ -291,7 +304,13 @@ INSERT INTO `order_detail` (`id`, `name`, `image`, `sku`, `user_id`, `order_id`,
 (7, 'Iphone 7 Plus 32GB - NEW', 'uploads/product/1584949065_iphone-7-plus-gold-400x460-400x460.png', NULL, 0, 13, 30, 15980000, 2),
 (8, 'Apple Watch S5 LTE 40mm viền nhôm dây cao su', 'uploads/product/1586667604_apple-watch-s5-lte-40mm-vien-nhom-day-cao-su-ava-400x400.jpg', NULL, 0, 14, 50, 2900000, 1),
 (9, 'ASUS ROG Phone 2 512GB', 'uploads/product/1584948535__600x600__crop_600_asus_rog_phone2_min_1.jpg', NULL, 0, 14, 28, 20490000, 1),
-(10, 'Iphone 7 Plus 32GB - NEW', 'uploads/product/1584949065_iphone-7-plus-gold-400x460-400x460.png', NULL, 0, 15, 30, 7990000, 1);
+(10, 'Iphone 7 Plus 32GB - NEW', 'uploads/product/1584949065_iphone-7-plus-gold-400x460-400x460.png', NULL, 0, 15, 30, 7990000, 1),
+(11, 'DÂY DA OGIVAL PK-DD-OGIVAL-V12-S20N', 'uploads/product/1635143625_1632303117_58.jpg', NULL, NULL, 16, 27, 1200000, 1),
+(12, 'DÂY DA ĐÀ ĐIỂU PK-DD-DADIEU-S16D', 'uploads/product/1635143563_1632303077_57.jpg', NULL, NULL, 17, 26, 1200000, 1),
+(13, 'Đồng hồ Hublot cặp máy cơ Nhật Hublot Automatic màu đen Super Fake 34/42mm', 'uploads/product/1635143348_1632302673_52.jpg', NULL, NULL, 17, 23, 1200000, 1),
+(14, 'Đồng hồ Hublot cặp máy cơ Nhật Hublot Automatic màu đen Super Fake 34/42mm', 'uploads/product/1635143348_1632302673_52.jpg', NULL, NULL, 18, 23, 1200000, 1),
+(15, 'DÂY DA ĐÀ ĐIỂU PK-DD-DADIEU-S16D', 'uploads/product/1635143563_1632303077_57.jpg', NULL, NULL, 18, 26, 1200000, 1),
+(16, 'DÂY DA ĐÀ ĐIỂU PK-DD-DADIEU-S16D', 'uploads/product/1635143563_1632303077_57.jpg', NULL, NULL, 19, 26, 1200000, 1);
 
 -- --------------------------------------------------------
 
@@ -386,11 +405,11 @@ INSERT INTO `products` (`id`, `name`, `slug`, `image`, `stock`, `price`, `sale`,
 (21, 'Đồng hồ Hublot cặp nam nữ máy cơ Hublot màu xanh lá cây Super Fake 34/42mm', 'dong-ho-hublot-cap-nam-nu-may-co-hublot-mau-xanh-la-cay-super-fake-3442mm', 'uploads/product/1635143254_1632302572_49.jpg', 11, 1200000, 1000000, 21, 1, 0, 0, 52, NULL, NULL, NULL, NULL, 12, 0, '<p><strong>Chế Độ Bảo H&agrave;nh 12 Th&aacute;ng Lỗi 1 Đổi 1 Trong 7 Ng&agrave;y</strong><br />\r\n<strong>Hỗ Trợ Bảo H&agrave;nh Sản Phẩm Trọn Đời</strong><br />\r\n<strong>Miễn Ph&iacute; Giao H&agrave;ng To&agrave;n Quốc</strong><br />\r\n<strong>Nhận H&agrave;ng Kiểm Tra Trước Khi Thanh To&aacute;n</strong></p>\r\n\r\n<p><strong>Th&ocirc;ng số &ndash; Đồng hồ Hublot cặp nam nữ</strong><br />\r\n<strong>Đường k&iacute;nh nam: 42mm</strong><br />\r\n<strong>Đường k&iacute;nh nữ: 34mm</strong><br />\r\n<strong>Bề d&agrave;y mặt: 10mm</strong><br />\r\n<strong>Vỏ v&agrave; kh&oacute;a: Th&eacute;p kh&ocirc;ng gỉ mạ PVD</strong><br />\r\n<strong>Bộ m&aacute;y: Japan Automatic (CƠ)</strong><br />\r\n<strong>Mặt k&iacute;nh: Mineral Crystal</strong><br />\r\n<strong>D&acirc;y đeo: D&acirc;y cao su bọc da</strong><br />\r\n<strong>Chống nước 3ATM</strong></p>', '<p><strong>Chế Độ Bảo H&agrave;nh 12 Th&aacute;ng Lỗi 1 Đổi 1 Trong 7 Ng&agrave;y</strong><br />\r\n<strong>Hỗ Trợ Bảo H&agrave;nh Sản Phẩm Trọn Đời</strong><br />\r\n<strong>Miễn Ph&iacute; Giao H&agrave;ng To&agrave;n Quốc</strong><br />\r\n<strong>Nhận H&agrave;ng Kiểm Tra Trước Khi Thanh To&aacute;n</strong></p>\r\n\r\n<p><strong>Th&ocirc;ng số &ndash; Đồng hồ Hublot cặp nam nữ</strong><br />\r\n<strong>Đường k&iacute;nh nam: 42mm</strong><br />\r\n<strong>Đường k&iacute;nh nữ: 34mm</strong><br />\r\n<strong>Bề d&agrave;y mặt: 10mm</strong><br />\r\n<strong>Vỏ v&agrave; kh&oacute;a: Th&eacute;p kh&ocirc;ng gỉ mạ PVD</strong><br />\r\n<strong>Bộ m&aacute;y: Japan Automatic (CƠ)</strong><br />\r\n<strong>Mặt k&iacute;nh: Mineral Crystal</strong><br />\r\n<strong>D&acirc;y đeo: D&acirc;y cao su bọc da</strong><br />\r\n<strong>Chống nước 3ATM</strong></p>', NULL, NULL, 0, '2021-10-24 23:27:34', '2021-10-24 23:27:34');
 INSERT INTO `products` (`id`, `name`, `slug`, `image`, `stock`, `price`, `sale`, `position`, `is_active`, `is_hot`, `views`, `category_id`, `url`, `sku`, `color`, `memory`, `brand_id`, `vendor_id`, `summary`, `description`, `meta_title`, `meta_description`, `user_id`, `created_at`, `updated_at`) VALUES
 (22, 'Đồng hồ Hublot cặp máy cơ Nhật Hublot đính đá màu đen Super Fake 34/42mm', 'dong-ho-hublot-cap-may-co-nhat-hublot-dinh-da-mau-den-super-fake-3442mm', 'uploads/product/1635143298_1632302627_50.jpg', 11, 1200000, 1000000, 22, 1, 0, 0, 52, NULL, NULL, NULL, NULL, 6, 0, '<p><strong>Chế Độ Bảo H&agrave;nh 12 Th&aacute;ng Lỗi 1 Đổi 1 Trong 7 Ng&agrave;y</strong><br />\r\n<strong>Hỗ Trợ Bảo H&agrave;nh Sản Phẩm Trọn Đời</strong><br />\r\n<strong>Miễn Ph&iacute; Giao H&agrave;ng To&agrave;n Quốc</strong><br />\r\n<strong>Nhận H&agrave;ng Kiểm Tra Trước Khi Thanh To&aacute;n</strong></p>\r\n\r\n<p><strong>Th&ocirc;ng số &ndash; Đồng hồ Hublot cặp m&aacute;y cơ</strong><br />\r\n<strong>Đường k&iacute;nh nam: 42mm</strong><br />\r\n<strong>Đường k&iacute;nh nữ: 34mm</strong><br />\r\n<strong>Bề d&agrave;y mặt: 10mm</strong><br />\r\n<strong>Vỏ v&agrave; kh&oacute;a: Th&eacute;p kh&ocirc;ng gỉ mạ PVD</strong><br />\r\n<strong>Bộ m&aacute;y: Japan Automatic (CƠ)</strong><br />\r\n<strong>Mặt k&iacute;nh: Mineral Crystal</strong><br />\r\n<strong>D&acirc;y đeo: D&acirc;y cao su bọc da</strong><br />\r\n<strong>Chống nước 3ATM</strong></p>', '<p><strong>Chế Độ Bảo H&agrave;nh 12 Th&aacute;ng Lỗi 1 Đổi 1 Trong 7 Ng&agrave;y</strong><br />\r\n<strong>Hỗ Trợ Bảo H&agrave;nh Sản Phẩm Trọn Đời</strong><br />\r\n<strong>Miễn Ph&iacute; Giao H&agrave;ng To&agrave;n Quốc</strong><br />\r\n<strong>Nhận H&agrave;ng Kiểm Tra Trước Khi Thanh To&aacute;n</strong></p>\r\n\r\n<p><strong>Th&ocirc;ng số &ndash; Đồng hồ Hublot cặp m&aacute;y cơ</strong><br />\r\n<strong>Đường k&iacute;nh nam: 42mm</strong><br />\r\n<strong>Đường k&iacute;nh nữ: 34mm</strong><br />\r\n<strong>Bề d&agrave;y mặt: 10mm</strong><br />\r\n<strong>Vỏ v&agrave; kh&oacute;a: Th&eacute;p kh&ocirc;ng gỉ mạ PVD</strong><br />\r\n<strong>Bộ m&aacute;y: Japan Automatic (CƠ)</strong><br />\r\n<strong>Mặt k&iacute;nh: Mineral Crystal</strong><br />\r\n<strong>D&acirc;y đeo: D&acirc;y cao su bọc da</strong><br />\r\n<strong>Chống nước 3ATM</strong></p>', NULL, NULL, 0, '2021-10-24 23:28:18', '2021-10-24 23:28:18'),
-(23, 'Đồng hồ Hublot cặp máy cơ Nhật Hublot Automatic màu đen Super Fake 34/42mm', 'dong-ho-hublot-cap-may-co-nhat-hublot-automatic-mau-den-super-fake-3442mm', 'uploads/product/1635143348_1632302673_52.jpg', 11, 1200000, 1000000, 23, 1, 0, 0, 52, NULL, NULL, NULL, NULL, 7, 0, '<p><strong>Chế Độ Bảo H&agrave;nh 12 Th&aacute;ng Lỗi 1 Đổi 1 Trong 7 Ng&agrave;y</strong><br />\r\n<strong>Hỗ Trợ Bảo H&agrave;nh Sản Phẩm Trọn Đời</strong><br />\r\n<strong>Miễn Ph&iacute; Giao H&agrave;ng To&agrave;n Quốc</strong><br />\r\n<strong>Nhận H&agrave;ng Kiểm Tra Trước Khi Thanh To&aacute;n</strong></p>\r\n\r\n<p><strong>Th&ocirc;ng số &ndash; Đồng hồ Hublot cặp m&aacute;y cơ</strong><br />\r\n<strong>Đường k&iacute;nh nam: 42mm</strong><br />\r\n<strong>Đường k&iacute;nh nữ: 34mm</strong><br />\r\n<strong>Bề d&agrave;y mặt: 10mm</strong><br />\r\n<strong>Vỏ v&agrave; kh&oacute;a: Th&eacute;p kh&ocirc;ng gỉ mạ PVD</strong><br />\r\n<strong>Bộ m&aacute;y: Japan Automatic (CƠ)</strong><br />\r\n<strong>Mặt k&iacute;nh: Mineral Crystal</strong><br />\r\n<strong>D&acirc;y đeo: D&acirc;y cao su bọc da</strong><br />\r\n<strong>Chống nước 3ATM</strong></p>', '<p><strong>Chế Độ Bảo H&agrave;nh 12 Th&aacute;ng Lỗi 1 Đổi 1 Trong 7 Ng&agrave;y</strong><br />\r\n<strong>Hỗ Trợ Bảo H&agrave;nh Sản Phẩm Trọn Đời</strong><br />\r\n<strong>Miễn Ph&iacute; Giao H&agrave;ng To&agrave;n Quốc</strong><br />\r\n<strong>Nhận H&agrave;ng Kiểm Tra Trước Khi Thanh To&aacute;n</strong></p>\r\n\r\n<p><strong>Th&ocirc;ng số &ndash; Đồng hồ Hublot cặp m&aacute;y cơ</strong><br />\r\n<strong>Đường k&iacute;nh nam: 42mm</strong><br />\r\n<strong>Đường k&iacute;nh nữ: 34mm</strong><br />\r\n<strong>Bề d&agrave;y mặt: 10mm</strong><br />\r\n<strong>Vỏ v&agrave; kh&oacute;a: Th&eacute;p kh&ocirc;ng gỉ mạ PVD</strong><br />\r\n<strong>Bộ m&aacute;y: Japan Automatic (CƠ)</strong><br />\r\n<strong>Mặt k&iacute;nh: Mineral Crystal</strong><br />\r\n<strong>D&acirc;y đeo: D&acirc;y cao su bọc da</strong><br />\r\n<strong>Chống nước 3ATM</strong></p>', NULL, NULL, 0, '2021-10-24 23:29:08', '2021-10-24 23:29:08'),
+(23, 'Đồng hồ Hublot cặp máy cơ Nhật Hublot Automatic màu đen Super Fake 34/42mm', 'dong-ho-hublot-cap-may-co-nhat-hublot-automatic-mau-den-super-fake-3442mm', 'uploads/product/1635143348_1632302673_52.jpg', 9, 1200000, 1000000, 23, 1, 0, 0, 52, NULL, NULL, NULL, NULL, 7, 0, '<p><strong>Chế Độ Bảo H&agrave;nh 12 Th&aacute;ng Lỗi 1 Đổi 1 Trong 7 Ng&agrave;y</strong><br />\r\n<strong>Hỗ Trợ Bảo H&agrave;nh Sản Phẩm Trọn Đời</strong><br />\r\n<strong>Miễn Ph&iacute; Giao H&agrave;ng To&agrave;n Quốc</strong><br />\r\n<strong>Nhận H&agrave;ng Kiểm Tra Trước Khi Thanh To&aacute;n</strong></p>\r\n\r\n<p><strong>Th&ocirc;ng số &ndash; Đồng hồ Hublot cặp m&aacute;y cơ</strong><br />\r\n<strong>Đường k&iacute;nh nam: 42mm</strong><br />\r\n<strong>Đường k&iacute;nh nữ: 34mm</strong><br />\r\n<strong>Bề d&agrave;y mặt: 10mm</strong><br />\r\n<strong>Vỏ v&agrave; kh&oacute;a: Th&eacute;p kh&ocirc;ng gỉ mạ PVD</strong><br />\r\n<strong>Bộ m&aacute;y: Japan Automatic (CƠ)</strong><br />\r\n<strong>Mặt k&iacute;nh: Mineral Crystal</strong><br />\r\n<strong>D&acirc;y đeo: D&acirc;y cao su bọc da</strong><br />\r\n<strong>Chống nước 3ATM</strong></p>', '<p><strong>Chế Độ Bảo H&agrave;nh 12 Th&aacute;ng Lỗi 1 Đổi 1 Trong 7 Ng&agrave;y</strong><br />\r\n<strong>Hỗ Trợ Bảo H&agrave;nh Sản Phẩm Trọn Đời</strong><br />\r\n<strong>Miễn Ph&iacute; Giao H&agrave;ng To&agrave;n Quốc</strong><br />\r\n<strong>Nhận H&agrave;ng Kiểm Tra Trước Khi Thanh To&aacute;n</strong></p>\r\n\r\n<p><strong>Th&ocirc;ng số &ndash; Đồng hồ Hublot cặp m&aacute;y cơ</strong><br />\r\n<strong>Đường k&iacute;nh nam: 42mm</strong><br />\r\n<strong>Đường k&iacute;nh nữ: 34mm</strong><br />\r\n<strong>Bề d&agrave;y mặt: 10mm</strong><br />\r\n<strong>Vỏ v&agrave; kh&oacute;a: Th&eacute;p kh&ocirc;ng gỉ mạ PVD</strong><br />\r\n<strong>Bộ m&aacute;y: Japan Automatic (CƠ)</strong><br />\r\n<strong>Mặt k&iacute;nh: Mineral Crystal</strong><br />\r\n<strong>D&acirc;y đeo: D&acirc;y cao su bọc da</strong><br />\r\n<strong>Chống nước 3ATM</strong></p>', NULL, NULL, 0, '2021-10-24 23:29:08', '2022-04-19 23:47:21'),
 (24, 'Đồng hồ Burberry cặp dây da The Classic Round BU10104 và BU10001 LikeAuth', 'dong-ho-burberry-cap-day-da-the-classic-round-bu10104-va-bu10001-likeauth', 'uploads/product/1635143389_1632302712_53.jpg', 11, 1200000, 1000000, 24, 1, 0, 0, 52, NULL, NULL, NULL, NULL, 11, 0, '<p><strong>Chế Độ Bảo H&agrave;nh 12 Th&aacute;ng Lỗi 1 Đổi 1 Trong 7 Ng&agrave;y</strong><br />\r\n<strong>Hỗ Trợ Bảo H&agrave;nh Sản Phẩm Trọn Đời</strong><br />\r\n<strong>Miễn Ph&iacute; Giao H&agrave;ng To&agrave;n Quốc</strong><br />\r\n<strong>Nhận H&agrave;ng Kiểm Tra Trước Khi Thanh To&aacute;n</strong></p>\r\n\r\n<p><strong>Th&ocirc;ng số &ndash; Đồng hồ Burberry cặp Like Auth</strong><br />\r\n<strong>Đường k&iacute;nh nam: Nam 40mm</strong><br />\r\n<strong>Đường k&iacute;nh nữ: 32mm</strong><br />\r\n<strong>Bề d&agrave;y mặt: 9mm</strong><br />\r\n<strong>Bộ m&aacute;y: Swiss Made (Pin Thụy Sĩ)</strong><br />\r\n<strong>Vỏ v&agrave; kh&oacute;a: Th&eacute;p kh&ocirc;ng gỉ 316L</strong><br />\r\n<strong>Mặt k&iacute;nh: Sapphire chống xước</strong><br />\r\n<strong>D&acirc;y đeo: D&acirc;y da cao cấp</strong><br />\r\n<strong>Chống nước: 5ATM</strong></p>', '<p><strong>Chế Độ Bảo H&agrave;nh 12 Th&aacute;ng Lỗi 1 Đổi 1 Trong 7 Ng&agrave;y</strong><br />\r\n<strong>Hỗ Trợ Bảo H&agrave;nh Sản Phẩm Trọn Đời</strong><br />\r\n<strong>Miễn Ph&iacute; Giao H&agrave;ng To&agrave;n Quốc</strong><br />\r\n<strong>Nhận H&agrave;ng Kiểm Tra Trước Khi Thanh To&aacute;n</strong></p>\r\n\r\n<p><strong>Th&ocirc;ng số &ndash; Đồng hồ Burberry cặp Like Auth</strong><br />\r\n<strong>Đường k&iacute;nh nam: Nam 40mm</strong><br />\r\n<strong>Đường k&iacute;nh nữ: 32mm</strong><br />\r\n<strong>Bề d&agrave;y mặt: 9mm</strong><br />\r\n<strong>Bộ m&aacute;y: Swiss Made (Pin Thụy Sĩ)</strong><br />\r\n<strong>Vỏ v&agrave; kh&oacute;a: Th&eacute;p kh&ocirc;ng gỉ 316L</strong><br />\r\n<strong>Mặt k&iacute;nh: Sapphire chống xước</strong><br />\r\n<strong>D&acirc;y đeo: D&acirc;y da cao cấp</strong><br />\r\n<strong>Chống nước: 5ATM</strong></p>', NULL, NULL, 0, '2021-10-24 23:29:49', '2021-10-24 23:29:49'),
 (25, 'DÂY DA CÁ SẤU PK-DD-CSLB-V1-S16D', 'day-da-ca-sau-pk-dd-cslb-v1-s16d', 'uploads/product/1635143516_1632302866_54.jpg', 11, 300000, 200000, 25, 1, 0, 0, 5, NULL, NULL, NULL, NULL, 0, 0, '<p>D&acirc;y Da C&aacute; Sấu&nbsp;L&oacute;t B&ograve; V&acirc;n Đốt Tre c&aacute;c Size&nbsp;16mm, 18mm, 20mm, 22mm, 24mm m&agrave;u&nbsp;Đen chất lượng</p>', '<p>D&acirc;y Da C&aacute; Sấu&nbsp;L&oacute;t B&ograve; V&acirc;n Đốt Tre c&aacute;c Size&nbsp;16mm, 18mm, 20mm, 22mm, 24mm m&agrave;u&nbsp;Đen chất lượng</p>', NULL, NULL, 0, '2021-10-24 23:31:56', '2021-10-24 23:31:56'),
-(26, 'DÂY DA ĐÀ ĐIỂU PK-DD-DADIEU-S16D', 'day-da-da-dieu-pk-dd-dadieu-s16d', 'uploads/product/1635143563_1632303077_57.jpg', 11, 1200000, 1000000, 26, 1, 0, 0, 5, NULL, NULL, NULL, NULL, 0, 0, '<p>D&acirc;y đồng hồ chất liệu da Đ&agrave; Điểu, k&iacute;ch thước&nbsp;12mm, 14mm, 16mm, m&agrave;u&nbsp;đen chất lượng</p>', '<p>D&acirc;y đồng hồ chất liệu da Đ&agrave; Điểu, k&iacute;ch thước&nbsp;12mm, 14mm, 16mm, m&agrave;u&nbsp;đen chất lượng</p>', NULL, NULL, 0, '2021-10-24 23:32:43', '2021-10-24 23:32:43'),
-(27, 'DÂY DA OGIVAL PK-DD-OGIVAL-V12-S20N', 'day-da-ogival-pk-dd-ogival-v12-s20n', 'uploads/product/1635143625_1632303117_58.jpg', 11, 1200000, 1000000, 27, 1, 1, 0, 5, NULL, NULL, NULL, NULL, 0, 0, '<p>D&acirc;y da đồng hồ Ogival&nbsp;chất liệu da B&ograve;, size 20mm, 22mm m&agrave;u n&acirc;u chất lượng tại Xwatch</p>', '<p>D&acirc;y da đồng hồ Ogival&nbsp;chất liệu da B&ograve;, size 20mm, 22mm m&agrave;u n&acirc;u chất lượng tại Xwatch</p>', NULL, NULL, 0, '2021-10-24 23:33:45', '2022-04-08 18:22:37');
+(26, 'DÂY DA ĐÀ ĐIỂU PK-DD-DADIEU-S16D', 'day-da-da-dieu-pk-dd-dadieu-s16d', 'uploads/product/1635143563_1632303077_57.jpg', 8, 1200000, 1000000, 26, 1, 0, 0, 5, NULL, NULL, NULL, NULL, 0, 0, '<p>D&acirc;y đồng hồ chất liệu da Đ&agrave; Điểu, k&iacute;ch thước&nbsp;12mm, 14mm, 16mm, m&agrave;u&nbsp;đen chất lượng</p>', '<p>D&acirc;y đồng hồ chất liệu da Đ&agrave; Điểu, k&iacute;ch thước&nbsp;12mm, 14mm, 16mm, m&agrave;u&nbsp;đen chất lượng</p>', NULL, NULL, 0, '2021-10-24 23:32:43', '2022-04-19 23:57:22'),
+(27, 'DÂY DA OGIVAL PK-DD-OGIVAL-V12-S20N', 'day-da-ogival-pk-dd-ogival-v12-s20n', 'uploads/product/1635143625_1632303117_58.jpg', 0, 1200000, 1000000, 27, 1, 1, 0, 5, NULL, NULL, NULL, NULL, 0, 0, '<p>D&acirc;y da đồng hồ Ogival&nbsp;chất liệu da B&ograve;, size 20mm, 22mm m&agrave;u n&acirc;u chất lượng tại Xwatch</p>', '<p>D&acirc;y da đồng hồ Ogival&nbsp;chất liệu da B&ograve;, size 20mm, 22mm m&agrave;u n&acirc;u chất lượng tại Xwatch</p>', NULL, NULL, 0, '2021-10-24 23:33:45', '2022-04-19 22:01:13');
 
 -- --------------------------------------------------------
 
@@ -462,7 +481,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`, `role_id`, `avatar`, `is_active`) VALUES
-(4, 'vũ ngọc phúc', 'phucbo9898@gmail.com', '$2y$10$5cbsEpIWGLEepXxFYH9E6OZK3GxG06owYeuv8ixlNxYkuwFTofl5m', 'JSqJCFNOJel3WThs4nhg6VeyGhE4FNDkYH2eKdoFkBFvkHrmBOg5sF77YdKI', '2021-10-24 22:35:53', '2022-03-19 02:03:47', 2, 'uploads/user/1635145178_MOM_1679.JPG', 0),
+(4, 'vũ ngọc phúc', 'phucbo9898@gmail.com', '$2y$10$5cbsEpIWGLEepXxFYH9E6OZK3GxG06owYeuv8ixlNxYkuwFTofl5m', 'plLv38s95vCzRppyIJy03gEzhL7kqzlCrW0vTYeb4d21DryAaoFClMix2RhA', '2021-10-24 22:35:53', '2022-03-19 02:03:47', 2, 'uploads/user/1635145178_MOM_1679.JPG', 0),
 (5, 'Vũ Quốc Hải', 'vuquochai1971@gmail.com', '$2y$10$MLmrRDFJ338IcCwlhJlcI.czU.8qBm41XAGvg6p.2vI7uw/.RG.4a', NULL, '2021-10-24 23:59:18', '2021-10-24 23:59:18', 3, NULL, 1);
 
 -- --------------------------------------------------------
@@ -523,6 +542,12 @@ ALTER TABLE `banners`
 ALTER TABLE `brands`
   ADD PRIMARY KEY (`id`) USING BTREE,
   ADD UNIQUE KEY `brands_slug_unique` (`slug`) USING BTREE;
+
+--
+-- Chỉ mục cho bảng `carts`
+--
+ALTER TABLE `carts`
+  ADD PRIMARY KEY (`ID`,`name`);
 
 --
 -- Chỉ mục cho bảng `categories`
@@ -650,19 +675,19 @@ ALTER TABLE `coupons`
 -- AUTO_INCREMENT cho bảng `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT cho bảng `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT cho bảng `order_detail`
 --
 ALTER TABLE `order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT cho bảng `order_status`
@@ -674,7 +699,7 @@ ALTER TABLE `order_status`
 -- AUTO_INCREMENT cho bảng `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT cho bảng `product_images`

@@ -101,7 +101,8 @@
 </head>
 <body>
 <!--[if lt IE 8]>
-<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
 <![endif]-->
 
 <!-- Add your site or application content here -->
@@ -120,8 +121,13 @@
                 <div class="header-right-menu">
                     <nav>
                         <ul class="list-inline">
-                            <li><a href="{{ asset('frontend/cart.html')}}">Giỏ Hàng</a></li>
-                            <li><a href="{{ route('shop.contact') }}">Liên hệ</a></li>
+                            <li>
+                                <a href="{{ route('shop.cart') }}">
+                                    <i class="fa fa-shopping-cart cart-icon fa-2x"></i>
+                                    {{Cart::content()->count()}}
+                                </a>
+                            </li>
+                            <li><a href="{{ route('admin.dashboard.index') }}"><b>Admin</b></a></li>
                         </ul>
                     </nav>
                 </div>
@@ -135,11 +141,11 @@
 <section class="header-middle">
     <div class="container">
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-sm-9">
                 <!-- LOGO START -->
                 <div class="logo">
-                    <a href=""><img style="height: 80px;
-    width: 80px;" src="{{ asset('frontend/img/logo.png')}}" alt="bstore logo"/></a>
+                    <a href="{{ route('shop.home') }}"><img style="height: 80px;
+    width: 80px;" src="{{ asset('frontend/img/logo2.png')}}" alt="bstore logo"/></a>
                 </div>
                 <!-- LOGO END -->
                 <!-- HEADER-RIGHT-CALLUS START -->
@@ -147,18 +153,20 @@
                 <!-- HEADER-RIGHT-CALLUS END -->
                 <!-- CATEGORYS-PRODUCT-SEARCH START -->
                 <div class="categorys-product-search">
-                    <form action="{{ route('shop.search') }}" method="get" class="search-form-cat">
-                        <div class="search-product form-group">
-                            <input type="text" class="form-control search-form" name="tu-khoa"
-                                   placeholder="Nhập từ khóa tìm kiếm "/>
-                            <button class="search-button" value="Search" type="submit">
-                                <i class="fa fa-search"></i>
+                    <form action="{{ route('shop.search') }}" method="get" class="search-form-cat"
+                          style="width: 402px;">
+                        <div class="search-product form-group" style="width: 400px;">
+                            <input type="text" class="form-control search-form" name="s"
+                                   placeholder="Nhập dữ liệu tìm kiếm ">
+                            <button class="search-button" value="Search" name="s" type="submit">
+                                <i class="fa fa-search"> </i>
                             </button>
                         </div>
+
                     </form>
                 </div>
-                <!-- CATEGORYS-PRODUCT-SEARCH END -->
             </div>
+
         </div>
     </div>
 </section>
@@ -200,6 +208,7 @@
                                     </li>
                                 @endif
                             @endforeach
+                            <li><a href="{{ route('shop.contact') }}">Liên hệ</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -271,8 +280,8 @@
                     </nav>
                 </div>
             </div>
-            <!-- MOBILE MENU END -->
         </div>
+            <!-- MOBILE MENU END -->
     </div>
 </header>
 <!-- MAIN-MENU-AREA END -->
@@ -283,38 +292,7 @@
 
     </div>
 </section>
-<!-- MAIN-CONTENT-SECTION END -->
-<!-- BRAND-CLIENT-AREA START -->
-{{--<section class="brand-client-area">--}}
-{{--    <div class="container">--}}
-{{--        <div class="row">--}}
-{{--            <!-- BRAND-CLIENT-ROW START -->--}}
-{{--            <div class="brand-client-row">--}}
-{{--                <div class="center-title-area">--}}
-{{--                    <h2 class="center-title">Thương hiệu</h2>--}}
-{{--                </div>--}}
-{{--                <div class="col-xs-12">--}}
-{{--                    @foreach($row['brands'] as $brand)--}}
-{{--                        <div class="row">--}}
-{{--                            <!-- CLIENT-CAROUSEL START -->--}}
-{{--                            <div class="client-carousel">--}}
-{{--                                <!-- CLIENT-SINGLE START -->--}}
-{{--                                <div class="item">--}}
-{{--                                    <div class="single-client">--}}
-{{--                                        <a href="{{ route('shop.brand',['slug' => $brand->slug]) }}"><img src="{{ asset($brand->image) }}" alt="product-image" /></a>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                                <!-- CLIENT-SINGLE END -->--}}
-{{--                            </div>--}}
-{{--                            <!-- CLIENT-CAROUSEL END -->--}}
-{{--                        </div>--}}
-{{--                    @endforeach--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--            <!-- BRAND-CLIENT-ROW END -->--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--</section>--}}
+
 <br>
 <!-- BRAND-CLIENT-AREA END -->
 <!-- FOOTER-TOP-AREA START -->
@@ -400,7 +378,8 @@
                                                 <h2>Thông tin</h2>
                                                 <ul>
                                                     <li><a href="{{ route('shop.contact') }}"><i
-                                                                class="fa fa-angle-double-right"></i>Liên hệ với chúng tôi</a>
+                                                                class="fa fa-angle-double-right"></i>Liên hệ với chúng
+                                                            tôi</a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -408,23 +387,7 @@
                                         <!-- FOTTER-MENU-WIDGET END -->
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                        <!-- FOTTER-MENU-WIDGET START -->
-                                        <div class="fotter-menu-widget">
-                                            <div class="single-f-widget">
-                                                <h2>Tài khoản của tôi</h2>
-                                                <ul>
-                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i>Đơn đặt hàng của tôi</a>
-                                                    </li>
-                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i>Địa chỉ của tôi</a>
-                                                    </li>
-                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i>Thông tin cá nhân
-                                                            của tôi</a></li>
-                                                    <li><a href="#"><i class="fa fa-angle-double-right"></i>Đăng xuất</a></li>
 
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <!-- FOTTER-MENU-WIDGET END -->
                                     </div>
 
                                 </div>
@@ -449,7 +412,7 @@
                         Copyright &copy;<script>document.write(new Date().getFullYear());</script>
                         All rights reserved | This template is made with <i class="icon-heart color-danger"
                                                                             aria-hidden="true"></i> by♥ <a
-                            href="https://colorlib.com" target="_blank">Colorlib</a>
+                            href="https://colorlib.com" target="_blank">Kise</a>
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     </p>
                 </div>
