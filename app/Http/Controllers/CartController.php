@@ -126,7 +126,7 @@ class CartController extends GeneralController
     {
         // validate lại thông tin nhập từ form
         $request->validate([
-            'name' => 'required|max:255',
+            'fullname' => 'required|max:255',
             'phone' => 'required',
             'email' => 'required|email',
             'address' => 'required',
