@@ -82,8 +82,8 @@
                     <a href="{{ route('shop.cart.destroy') }}" class="btn btn-danger py-2 px-2 m-l-2">
                         <i class="icon-remove"></i> Hủy Đơn Hàng
                     </a>
-                    <a href="/" class="btn btn-black py-2 px-2 " >Tiến tục mua hàng</a>
-                    <a href="{{ route('shop.cart.order') }}#order" class="btn btn-warning py-2 px-2 "style="float: right">
+                    <a href="{{ route('shop.home')}}" class="btn btn-black py-2 px-2 " >Tiến tục mua hàng</a>
+                    <a href="{{ route('shop.cart.order') }}" class="btn btn-warning py-2 px-2 "style="float: right">
                         <i class="icon-long-arrow-right"></i>Tiến Hành Đặt hàng
                     </a>
                 </p>
@@ -170,5 +170,5 @@
         }
     </style><br>
     <h3 class="text-center"><i class="fa fa-opencart"></i>Bạn chưa có sản phẩm nào trong giỏ hàng</h3>
-    <a href="/" class="buyother"><i class="fa fa-chevron-left"></i> Về trang chủ</a>
+    <a href="{{ route('shop.home') }}" class="buyother"><i class="fa fa-chevron-left"></i> Về trang chủ</a>
 @endif

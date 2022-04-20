@@ -36,8 +36,6 @@ Route::get('/lien-he', 'ShopController@contact')->name('shop.contact');
 
 Route::post('/gui-lien-he', 'ShopController@postContact')->name('shop.postContact');
 
-Route::get('/dat-hang', 'ShopController@order')->name('shop.order');
-
 // Danh sách tin tức
 Route::get('/tin-tuc' , 'ShopController@articles')->name('shop.article');
 
@@ -73,11 +71,12 @@ Route::post('/admin/postLogin', 'AdminController@postLogin')->name('admin.postLo
 // Đăng xuất
 Route::get('/admin/logout', 'AdminController@logout')->name('admin.logout');
 
+// Trang chủ - quản trị
+Route::get('/admin', 'AdminController@login')->name('admin.index');
 //------------------ Quản trị --------------------------------------------
 // Gom nhóm các route
 Route::group(['prefix' => 'admin','as' => 'admin.', 'middleware' => 'checkLogin'], function() {
-    // Trang chủ - quản trị
-    Route::get('/index', 'AdminController@index');
+    
 
     // Route::get('/duong-dan', 'ten-controller@method');
     Route::resource('banner', 'BannerController');
