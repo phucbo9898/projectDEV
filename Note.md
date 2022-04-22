@@ -9,7 +9,7 @@
                 <span>
                     +, DB_DATABASE=webshop <br>
                     +, DB_USERNAME=root <br>
-                    +, DB_PASSWWORD=    <br>
+                    +, DB_PASSWWORD=   <br>
                 </span>
             </span>
     </h3>
