@@ -50,7 +50,7 @@ Route::get('/gio-hang/them-san-pham-vao-gio-hang/{product_id}','CartController@a
 // Xóa SP khỏi giỏ hàng
 Route::get('/gio-hang/xoa-sp-gio-hang/{id}', 'CartController@removeToCart')->name('shop.cart.remove-to-cart');
 // Cập nhật giỏ hàng
-Route::get('/gio-hang/cap-nhat-so-luong-sp', 'CartController@updateToCart')->name('shop.cart.update-to-cart');
+Route::post('/gio-hang/cap-nhat-so-luong-sp{id}', 'CartController@updateToCart')->name('shop.cart.update-to-cart');
 // Hủy đơn đặt hàng
 Route::get('/gio-hang/huy-don-hang', 'CartController@destroy')->name('shop.cart.destroy');
 

@@ -61,34 +61,36 @@ class CartController extends GeneralController
     {
         //Xóa sản phẩm trong giỏ
         Cart::remove($rowId);
+        return redirect()->back();
+        // $listProducts = Cart::content();
+        // $totalPrice = Cart::total(0,'','',''.'');
 
-        $listProducts = Cart::content();
-        $totalPrice = Cart::total(0,'','',''.'');
-
-        return view('frontend.components.cart', [
-            'cart' => $listProducts,
-            'totalPrice' => $totalPrice
-        ]);
+        // return view('frontend.components.cart', [
+        //     'cart' => $listProducts,
+        //     'totalPrice' => $totalPrice
+        // ]);
     }
 
     /**
      * Cập nhật số lượng sản phẩm trong giỏ hàng
      */
-    public function updateToCart(Request $request)
+    public function updateToCart(Request $request, $rowId)
     {
-        $rowId = $request->input('rowId');
-        $qty = (int) $request->input('qty');
+        // $rowId = $request->input('rowId');
+        // $qty = (int) $request->input('qty');
 
-        // cập nhật lại số lương
-        (new \App\Cart)->update($rowId, ['qty' => $qty]);
+        // // cập nhật lại số lương
+        // (new \App\Cart)->update($rowId, ['qty' => $qty]);
 
-        $listProducts = Cart::content(); // lấy toàn sản phẩm trong giỏ
-        $totalPrice = Cart::total(0,",","."); // lấy tổng giá của sản phẩm
+        // $listProducts = Cart::content(); // lấy toàn sản phẩm trong giỏ
+        // $totalPrice = Cart::total(0,",","."); // lấy tổng giá của sản phẩm
 
-        return view('frontend.components.cart', [
-            'cart' => $listProducts,
-            'totalPrice' => $totalPrice
-        ]);
+        // return view('frontend.components.cart', [
+        //     'cart' => $listProducts,
+        //     'totalPrice' => $totalPrice
+        // ]);
+        Cart::update($rowId, $request->input('updateToCart'));
+        return redirect()->back();
     }
 
 
