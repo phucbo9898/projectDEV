@@ -17,10 +17,10 @@
                             <tr>
                                 <th class="text-center">TT</th>
                                 <th class="text-center">Ngày</th>
-                                <th class="text-center">Mã ĐH</th>
+                                <th class="text-center">Mã đơn hàng</th>
                                 <th style="max-with:200px">Trạng thái</th>
                                 <th>Họ tên</th>
-                                <th>ĐT</th>
+                                <th>Số điện thoại</th>
                                 <th>Email</th>
                                 <th>Tổng tiền</th>
                                 <th class="text-center"></th>

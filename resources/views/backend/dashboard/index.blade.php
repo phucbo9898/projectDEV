@@ -2,7 +2,7 @@
 
 @section('main-content')
     <section class="content-header">
-        <h1>Dashboard</h1>
+        <h1>Bảng điều khiển</h1>
     </section>
 
     <!-- Main content -->
@@ -76,7 +76,10 @@
     <!--Danh sách đơn hàng ----- để 5 sản phẩm mới nhất-->
     <style>tr td:first-child {max-width: 250px} .price {color: red}</style>
     <section class="content-header">
-        <h1>
+        <h1 style="font-size: 50px;
+                   text-align: center;
+                   color: blue;
+                   margin: 10px">
             Danh Sách Đơn Hàng
         </h1>
     </section>
@@ -90,10 +93,10 @@
                             <tr>
                                 <th class="text-center">TT</th>
                                 <th class="text-center">Ngày</th>
-                                <th class="text-center">Mã ĐH</th>
+                                <th class="text-center">Mã đơn hàng</th>
                                 <th style="max-with:200px">Trạng thái</th>
                                 <th>Họ tên</th>
-                                <th>ĐT</th>
+                                <th>Số điện thoại</th>
                                 <th>Email</th>
                                 <th>Tổng tiền</th>
                                 <th class="text-center"></th>

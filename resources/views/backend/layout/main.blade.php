@@ -153,7 +153,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="#" style="display: none;" >
                         <i class="fa fa-bar-chart"></i>
                         <span>Quản Lý Báo cáo thống kê</span>
                     </a>
@@ -183,8 +183,7 @@
                     <div class="copy-right" style="text-align: center;color: white;">
                         <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                             Copyright &copy;<script>document.write(new Date().getFullYear());</script>
-                            All rights reserved | This template is made with <i class="icon-heart color-danger"
-                                                                                aria-hidden="true"></i> by♥ <a
+                            All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by♥ <a
                                 href="https://colorlib.com" target="_blank">Kise</a>
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         </p>
