@@ -6,6 +6,7 @@
     <title>Trang quản trị</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="icon" type="image/x-icon" href="{{ asset('uploads/favicon.ico')}}">
     <!-- Bootstrap 3.3.7 -->
     <link rel="stylesheet" href="{{ asset('backend/bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
     <!-- Font Awesome -->
@@ -43,12 +44,12 @@
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top">
             <!-- Sidebar toggle button-->
-            <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </a>
+{{--            <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">--}}
+{{--                <span class="sr-only">Toggle navigation</span>--}}
+{{--                <span class="icon-bar"></span>--}}
+{{--                <span class="icon-bar"></span>--}}
+{{--                <span class="icon-bar"></span>--}}
+{{--            </a>--}}
 
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
@@ -174,14 +175,25 @@
         <!-- Nội dung của các trang  -->
         @yield('main-content')
     </div>
-    <!-- /.content-wrapper -->
-    <footer class="main-footer">
-        <div class="pull-right hidden-xs">
-            <b>Version</b> 2.4.18
+    <!-- COPYRIGHT-AREA START -->
+    <footer class="copyright-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="copy-right" style="text-align: center;color: white;">
+                        <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                            All rights reserved | This template is made with <i class="icon-heart color-danger"
+                                                                                aria-hidden="true"></i> by♥ <a
+                                href="https://colorlib.com" target="_blank">Kise</a>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">Trang quản trị</a>.</strong> All rights
-        reserved.
     </footer>
+    <!-- COPYRIGHT-AREA END -->
 
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">

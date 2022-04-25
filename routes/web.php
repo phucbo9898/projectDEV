@@ -87,13 +87,16 @@ Route::group(['prefix' => 'admin','as' => 'admin.', 'middleware' => 'checkLogin'
     Route::resource('brand', 'BrandController');
     Route::resource('contact', 'ContactController');
     Route::resource('dashboard', 'DashboardController');
-    // Route::resource('setting', 'SettingController');
+    Route::resource('statistic', 'StatisticController');
     //Route::get('/category', 'CategoryController@index');
     //QL đơn hàng
     Route::resource('order', 'OrderController');
     Route::post('order/remove-to-cart', 'OrderController@removeToCart')->name('order.remove');
+    
 });
 
+Route::get('/list', 'StatisticController@getStatistic')->name('admin.get.list.statistic');
+Route::get('/export', 'StatisticController@export')->name('admin.get.export.statistic');
 
 
 

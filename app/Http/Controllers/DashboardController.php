@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Article;
+use App\Brand;
+use App\Category;
 use App\Order;
 use App\Product;
 use App\User;
@@ -24,14 +26,14 @@ class DashboardController extends Controller
 //        $data = Product::all();
 //        $countProduct = Product::count();
 //        dd($countProduct);
-        $data = Product::latest()->paginate(10);    // Lấy dữ liệu phân trang
+        $orders = Order::latest()->paginate(5);    // Lấy dữ liệu phân trang
         $users = User::all();
         $data1 = [
             'product_count'=>$product_count,
             'order_count'=>$order_count,
             'customer_count'=>$customer_count,
             'article_count'=>$article_count,
-            'data'=>$data,
+            'orders'=>$orders,
             'users'=>$users
         ];
         return view('backend.dashboard.index', $data1);
@@ -44,7 +46,10 @@ class DashboardController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+        $brands = Brand::all();
+
+        return view('backend.product.create', ['categories' => $categories, 'brands' => $brands]);
     }
 
     /**
