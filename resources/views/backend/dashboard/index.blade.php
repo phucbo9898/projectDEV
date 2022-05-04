@@ -28,9 +28,9 @@
                 <!-- small box -->
                 <div class="small-box bg-green">
                     <div class="inner">
-                        <h3>{{$customer_count}}</h3>
+                        <h3>{{$article_count}}</h3>
 
-                        <p>Người dùng</p>
+                        <p>Tin tức</p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-stats-bars"></i>
@@ -43,9 +43,9 @@
                 <!-- small box -->
                 <div class="small-box bg-yellow">
                     <div class="inner">
-                        <h3>{{$article_count}}</h3>
+                        <h3>{{$customer_count}}</h3>
 
-                        <p>Tin tức</p>
+                        <p>Người dùng</p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-person-add"></i>
@@ -76,10 +76,7 @@
     <!--Danh sách đơn hàng ----- để 5 sản phẩm mới nhất-->
     <style>tr td:first-child {max-width: 250px} .price {color: red}</style>
     <section class="content-header">
-        <h1 style="font-size: 50px;
-                   text-align: center;
-                   color: blue;
-                   margin: 10px">
+        <h1>
             Danh Sách Đơn Hàng
         </h1>
     </section>

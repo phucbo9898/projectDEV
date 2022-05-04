@@ -80,6 +80,7 @@
     </section>
     <br>
     <br>
+    
 @endsection
 
 @section('script')
